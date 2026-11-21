@@ -1,121 +1,265 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-type="service" data-radius="soft" data-buttons="block" data-motion>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Willames Store | Agência de Automação em Natal-RN</title>
-<meta name="description" content="Agentes de IA para WhatsApp e Instagram, sites e páginas de venda, tráfego pago no Meta e no Google. Willames Store, agência de automação em Natal-RN.">
-<link rel="icon" href="logo.svg" type="image/svg+xml">
-<meta property="og:title" content="Willames Store | Agência de Automação">
-<meta property="og:description" content="Tecnologia que atende, vende e organiza o seu negócio.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Willames Store: agência de automação e IA em Natal-RN</title>
+<meta name="description" content="Agentes de IA que atendem no WhatsApp e no Instagram, sites que levam para a conversa e anúncios no Meta e no Google, para empresas de todo o Brasil.">
 <meta property="og:type" content="website">
+<meta property="og:title" content="Willames Store: agência de automação e IA em Natal-RN">
+<meta property="og:description" content="Agentes de IA no WhatsApp, sites e anúncios para empresas.">
+<meta property="og:image" content="share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0a1a3f">
+<link rel="canonical" href="https://danielwillames.github.io/">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400..700&family=Figtree:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
 <style>
-:root{--noite:#0A1A3F;--card:#11265A;--borda:#2A4380;--azul:#3B8BFF;--ciano:#5CE1E6;--texto:#F4F7FF;--apoio:#B9C6E4}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--noite);color:var(--texto);font-family:Inter,system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:0;z-index:10;background:rgba(10,26,63,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(42,67,128,.6)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-.marca{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:Sora;font-weight:800;font-size:20px}
-.marca small{font-weight:500;font-size:13px;letter-spacing:.3em;color:var(--azul);margin-left:6px}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--azul);color:#fff;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:12px;transition:filter .15s}
-.btn:hover{filter:brightness(1.1)}
-.btn.sec{background:transparent;border:1px solid var(--borda)}
-.nav .btn{padding:10px 18px;font-size:15px}
-.hero{padding-top:96px;padding-bottom:80px}
-.kicker{font-size:13px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--ciano);margin-bottom:20px}
-h1{font-family:Sora;font-weight:800;font-size:clamp(40px,6.4vw,76px);line-height:1.04;letter-spacing:-.035em;max-width:900px}
-h1 em{font-style:normal;color:var(--ciano)}
-.hero p{font-size:clamp(18px,2.2vw,22px);color:var(--apoio);max-width:640px;margin:28px 0 40px}
-.acoes{display:flex;gap:14px;flex-wrap:wrap}
-section{padding:80px 0;border-top:1px solid rgba(42,67,128,.5)}
-h2{font-family:Sora;font-weight:800;font-size:clamp(30px,4.2vw,46px);line-height:1.1;letter-spacing:-.03em;margin-bottom:16px}
-.lead{color:var(--apoio);max-width:620px;margin-bottom:48px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--borda);border-radius:18px;padding:30px}
-.card svg{width:44px;height:44px;margin-bottom:20px}
-.card h3{font-family:Sora;font-weight:700;font-size:21px;margin-bottom:8px;letter-spacing:-.01em}
-.card p{color:var(--apoio);font-size:16px}
-.passos{counter-reset:p;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.passo{padding:28px 0 0;border-top:3px solid var(--azul)}
-.passo:before{counter-increment:p;content:"0" counter(p);font-family:Sora;font-weight:800;font-size:44px;color:var(--azul);display:block;margin-bottom:10px;letter-spacing:-.04em}
-.passo h3{font-family:Sora;font-weight:700;font-size:20px;margin-bottom:6px}
-.passo p{color:var(--apoio);font-size:16px}
-.contato{background:var(--azul);border-radius:24px;padding:56px 40px;text-align:center}
-.contato h2{color:#fff}
-.contato p{color:#EAF2FF;max-width:560px;margin:0 auto 32px}
-.contato .btn{background:var(--noite)}
-.contato .links{margin-top:22px;font-size:15px;color:#EAF2FF}
-footer{padding:40px 0 56px;color:var(--apoio);font-size:14px;border-top:1px solid rgba(42,67,128,.5)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between}
-footer a{color:var(--apoio)}
-.zap{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(59,139,255,.18)}
-@media (max-width:600px){.nav .btn span{display:none}.hero{padding-top:64px;padding-bottom:56px}section{padding:60px 0}.contato{padding:44px 22px}}
+:root {
+  --p-bg: #0a1a3f; --p-surface: #11265a; --p-ink: #f4f7ff; --p-muted: #a7b2cc;
+  --p-accent: #5ce1e6; --p-accent-ink: #0a1a3f; --p-action: #3b8bff; --p-action-ink: #0a1a3f;
+  --p-inv-bg: #11265a; --p-inv-surface: #1a3272; --p-inv-ink: #f4f7ff; --p-inv-muted: #b4bfd8;
+  --p-inv-accent: #5ce1e6; --p-inv-accent-ink: #0a1a3f; --p-inv-action: #3b8bff; --p-inv-action-ink: #0a1a3f;
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-text: "Figtree", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
+  --ly-scale: 0.8;
+}
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
+<style>
+  .nav__logo img { width: 32px; height: 32px; }
+  /* hero: o Reels do agente rodando ao lado do texto, sem nada por cima do vídeo */
+  .hero__demo { --demo-pad: var(--s-6); position: relative; border-radius: var(--r-lg); background: var(--surface); overflow: hidden; }
+  .hero__demo video { position: absolute; top: var(--demo-pad); left: 50%; transform: translateX(-50%); display: block; height: calc(100% - 2 * var(--demo-pad)); width: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 28px; border: 1px solid #2a4380; background: #0a1a3f; }
+  .hero__proof { list-style: none; padding: 0; margin: var(--s-6) 0 0; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); color: var(--muted); font-size: var(--t-small); }
+  .hero__proof li { display: inline-flex; align-items: center; gap: var(--s-2); }
+  .hero__proof li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  @media (max-width: 1023px) { .hero__demo { --demo-pad: var(--s-4); } }
+  @media (max-width: 639px) { .hero__proof, .hero .hero__kicker { display: none; } .hero__demo { min-height: 300px; } }
+  /* picture-develops: a foto da seção ao lado da lista, da altura do texto */
+  .develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(600px, var(--ly-fit)); }
+  .develop > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+  .rows__value .ic { --ic-s: 22px; margin-left: var(--s-2); }
+  .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-body); margin-top: var(--s-1); }
+  .work__img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid #2a4380; border-radius: var(--r-lg); }
+  #como-funciona .panel { --p-h: 300px; }
+  .faq__photo { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(600px, var(--ly-fit)); }
+  @media (max-width: 1023px) { .faq__photo { height: auto; aspect-ratio: 16 / 9; margin-top: var(--s-7); } }
+  .faq__photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 1023px) { .develop { height: auto; aspect-ratio: 4 / 3; margin-top: var(--s-7); } }
+  @media (min-width: 1024px) and (max-width: 1279px) { #servicos .rows__name small { display: none; } #como-funciona { --h: 2 } }
+  @media (min-width: 640px) and (max-width: 1023px) { #servicos, #trabalhos, #como-funciona { --h: 2 } }
+  @media (max-width: 639px) { #como-funciona .panel { --p-h: 200px; } #servicos, #trabalhos, #como-funciona { --hm: 2 } .faq__photo { display: none; } }
 </style>
 </head>
 <body>
-<header><div class="wrap nav">
-  <a class="marca" href="#"><svg viewBox="0 0 100 100" width="40" height="40" aria-hidden="true"><rect x="4" y="4" width="92" height="92" rx="24" fill="#0A1A3F" stroke="#3B8BFF" stroke-width="3"/><path d="M8 32h10M82 32h10M8 68h8M84 68h8" stroke="#3B8BFF" stroke-width="3" stroke-linecap="round"/><polyline points="22,30 34,72 50,44 66,72 78,30" fill="none" stroke="#3B8BFF" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/><circle cx="50" cy="20" r="5" fill="#5CE1E6"/></svg>Willames<small>STORE</small></a>
-  <a class="btn" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais" target="_blank" rel="noopener"><span>Fale no</span> WhatsApp</a>
-</div></header>
-
-<main>
-<div class="wrap hero">
-  <div class="kicker">Agência de automação · Natal-RN</div>
-  <h1>Sua empresa atendendo, vendendo e <em>aparecendo.</em> Mesmo quando você não está.</h1>
-  <p>Agentes de IA que respondem seus clientes 24h, sites que levam direto pro seu WhatsApp e anúncios para quem já procura o que você vende.</p>
-  <div class="acoes">
-    <a class="btn" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais" target="_blank" rel="noopener">Quero conversar</a>
-    <a class="btn sec" href="#servicos">Ver serviços</a>
+<!-- type: service
+     deal: hero split (era film; o texto por cima atrapalhava o vídeo), nav nav-centre, close close-type, footer footer-columns, rhythm dark-band, buttons block, mark: o logo da própria Willames Store
+     palette: as cores da marca (start.mjs brand: #F4F7FF, #0A1A3F, #3B8BFF), tipo: Sora (fonte da marca) + Figtree
+     moments: picture-develops na seção de serviços -->
+<header class="nav nav--centre">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Pular para o conteúdo</a>
+    <a class="nav__logo" href="#top"><img src="logo.svg" alt="" width="32" height="32">Willames Store</a>
+    <nav class="nav__links" aria-label="Principal">
+      <div class="nav__item">
+        <a class="nav__link" href="#servicos">Serviços <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-4">
+              <p class="t-label">Atendimento</p>
+              <a href="#servicos">Agente de IA<span>WhatsApp e Instagram, 24 horas</span></a>
+              <a href="#servicos">Sites e páginas de venda<span>Levam o cliente para a conversa</span></a>
+            </div>
+            <div class="menu-col span-4">
+              <p class="t-label">Anúncios e conteúdo</p>
+              <a href="#servicos">Tráfego pago no Meta<span>Instagram e Facebook</span></a>
+              <a href="#servicos">Google Ads<span>Para quem já pesquisa você</span></a>
+              <a href="#trabalhos">Vídeos e carrosséis<span>Reels e posts para o Instagram</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="#trabalhos">Trabalhos</a></div>
+      <div class="nav__item"><a class="nav__link" href="#como-funciona">Etapas</a></div>
+      <div class="nav__item"><a class="nav__link" href="#perguntas">Perguntas</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
   </div>
-</div>
+</header>
 
-<section id="servicos"><div class="wrap">
-  <div class="kicker">Serviços</div>
-  <h2>O que a Willames Store faz</h2>
-  <p class="lead">Cada serviço resolve uma parte do caminho do cliente: ser encontrado, ser bem atendido e fechar negócio.</p>
-  <div class="grid">
-    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H10l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M8 10h8M8 13h5"/></svg><h3>Agentes de IA</h3><p>Atendimento 24h no WhatsApp, no Instagram e no site. Tiram dúvidas, agendam horários e enviam orçamento.</p></div>
-    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M7 12h6M7 15h10"/></svg><h3>Sites e páginas de venda</h3><p>Sites institucionais e landing pages rápidos, que abrem bem no celular e levam o cliente para a conversa.</p></div>
-    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16M7 15l4-4 3 3 5-6M16 8h3v3"/></svg><h3>Tráfego pago no Meta</h3><p>Anúncios no Instagram e no Facebook com foco em contato e venda, não só em curtida.</p></div>
-    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><h3>Google Ads</h3><p>Campanhas de pesquisa para aparecer para quem já está procurando o seu serviço.</p></div>
-    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg><h3>Vídeos para Instagram</h3><p>Reels com a cara da sua marca, pensados para alcançar gente nova.</p></div>
-    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="#5CE1E6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg><h3>Carrosséis</h3><p>Carrosséis com texto claro e design profissional, alinhados à identidade da sua empresa.</p></div>
-  </div>
-</div></section>
+<main id="top">
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-6">
+        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Atendimento no WhatsApp 24 horas</p>
+        <h1 id="hero-h">Agência de automação e IA em Natal-RN</h1>
+        <p class="hero__lead">Agentes de IA que respondem seus clientes no WhatsApp e no Instagram a qualquer hora, sites que levam para a conversa e anúncios no Meta e no Google.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="#servicos">Ver os serviços</a>
+        </div>
+        <ul class="hero__proof">
+          <li>Proposta com valor fechado</li>
+          <li>Empresas de todo o Brasil</li>
+          <li>Fala direto com o dono</li>
+        </ul>
+      </div>
+      <div class="hero__media hero__demo span-6 start-7">
+        <!-- o Reels do agente de IA (marketing/conteudo/reels-agente-clinica-2026-11-26), mudo e em loop -->
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/reels-frame.jpg" width="1080" height="1920" aria-label="Demonstração: o agente de IA de uma clínica responde às 23h no WhatsApp e confirma uma consulta">
+          <source src="assets/media/reels-agente.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div></div>
+  </section>
 
-<section id="como-funciona"><div class="wrap">
-  <div class="kicker">Como funciona</div>
-  <h2>Simples do começo ao fim</h2>
-  <p class="lead">Você continua cuidando do seu negócio. A parte técnica fica comigo.</p>
-  <div class="passos">
-    <div class="passo"><h3>Conversa</h3><p>Entendo como a sua empresa atende e vende hoje, e onde está perdendo cliente.</p></div>
-    <div class="passo"><h3>Proposta</h3><p>Mostro o que faz sentido para o seu caso, com prazo e valor claros.</p></div>
-    <div class="passo"><h3>Entrega</h3><p>Monto, testo com você e coloco no ar.</p></div>
-    <div class="passo"><h3>Acompanhamento</h3><p>Ajusto o que for preciso para continuar funcionando bem.</p></div>
-  </div>
-</div></section>
+  <section class="section" id="servicos" aria-labelledby="servicos-h">
+    <div class="wrap grid grid--top">
+      <div class="span-6">
+        <div class="section-head">
+          <h2 id="servicos-h">Agente de IA, sites e anúncios para a sua empresa</h2>
+          <p>Você contrata um ou combina vários. Eu cuido da parte técnica, da conversa inicial até a entrega.</p>
+        </div>
+        <ul class="rows">
+          <li><span class="rows__name">Agente de IA no WhatsApp e no Instagram<small>Responde dúvidas, agenda horários e envia orçamentos a qualquer hora.</small></span><span class="rows__value"><img class="ic" data-icon="whatsapp" src="assets/icons/whatsapp.svg" alt="WhatsApp"><img class="ic" data-icon="instagram" src="assets/icons/instagram.svg" alt="Instagram"></span></li>
+          <li><span class="rows__name">Sites e páginas de venda<small>Abrem rápido no celular e levam o cliente direto para o WhatsApp.</small></span><span class="rows__value">Celular primeiro</span></li>
+          <li><span class="rows__name">Tráfego pago no Meta<small>Anúncios no Instagram e no Facebook com foco em contato e venda.</small></span><span class="rows__value"><img class="ic" data-icon="meta" src="assets/icons/meta.svg" alt="Meta"></span></li>
+          <li><span class="rows__name">Google Ads<small>Campanhas para quem já pesquisa o seu serviço no Google.</small></span><span class="rows__value"><img class="ic" data-icon="google-ads" src="assets/icons/google-ads.svg" alt="Google Ads"></span></li>
+          <li><span class="rows__name">Vídeos e carrosséis<small>Reels e carrosséis com a identidade visual da sua empresa.</small></span><span class="rows__value"><img class="ic" data-icon="instagram" src="assets/icons/instagram.svg" alt="Instagram"></span></li>
+        </ul>
+      </div>
+      <figure class="develop span-6 start-7" data-moment="picture-develops"><img src="assets/img/photo-f192534273.jpg" srcset="assets/img/photo-f192534273-500.jpg 500w, assets/img/photo-f192534273-960.jpg 960w, assets/img/photo-f192534273.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mulher em casa, à noite, mandando mensagem pelo celular" loading="lazy" decoding="async" data-source="stand-in" data-subject="cliente mandando mensagem à noite"></figure>
+    </div>
+  </section>
 
-<section id="contato"><div class="wrap">
-  <div class="contato">
-    <h2>Vamos conversar sobre a sua empresa?</h2>
-    <p>Me chama no WhatsApp e conte como funciona o seu atendimento hoje. Respondo pessoalmente.</p>
-    <a class="btn" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais" target="_blank" rel="noopener">Chamar no WhatsApp</a>
-    <div class="links">Instagram: <a href="https://www.instagram.com/danielwillamess/" target="_blank" rel="noopener">@danielwillamess</a> · E-mail: <a href="mailto:willamesstore@gmail.com">willamesstore@gmail.com</a></div>
-  </div>
-</div></section>
+  <section class="section ground-inverse" id="trabalhos" aria-labelledby="trabalhos-h">
+    <div class="wrap">
+      <div class="section-head section-head--row">
+        <h2 id="trabalhos-h">Carrosséis feitos para o Instagram da Willames Store</h2>
+        <a class="link" href="https://www.instagram.com/danielwillamess/" target="_blank" rel="noopener">Ver o perfil no Instagram</a>
+      </div>
+      <div class="grid fill">
+        <a class="tile span-4" href="https://www.instagram.com/danielwillamess/" target="_blank" rel="noopener" aria-label="Carrossel sobre os serviços da Willames Store, no Instagram">
+          <img class="work__img" src="assets/img/work-carrossel-o-que-eu-faco.jpg" width="800" height="1000" alt="Capa de carrossel: Sua empresa atendendo, vendendo e aparecendo" loading="lazy" data-source="client" data-subject="carrossel da Willames Store">
+        </a>
+        <a class="tile span-4" href="https://www.instagram.com/danielwillamess/" target="_blank" rel="noopener" aria-label="Carrossel sobre o agente de IA no WhatsApp, no Instagram">
+          <img class="work__img" src="assets/img/work-carrossel-agente-ia-whatsapp.jpg" width="800" height="1000" alt="Capa de carrossel: Seu WhatsApp respondendo às 3 da manhã" loading="lazy" data-source="client" data-subject="carrossel da Willames Store">
+        </a>
+        <a class="tile span-4" href="https://www.instagram.com/danielwillamess/" target="_blank" rel="noopener" aria-label="Carrossel para clínicas, no Instagram">
+          <img class="work__img" src="assets/img/work-carrossel-clinicas-depois-das-18h.jpg" width="800" height="1000" alt="Capa de carrossel: Quantos pacientes sua clínica perde depois das 18h" loading="lazy" data-source="client" data-subject="carrossel da Willames Store">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como-funciona" aria-labelledby="como-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="como-h">Do primeiro contato ao ar em 3 etapas</h2>
+        <p>Você continua cuidando do seu negócio. Eu monto, testo e acompanho.</p>
+      </div>
+      <div class="grid">
+        <article class="card card--row span-4">
+          <span class="step-num">1</span>
+          <h3>Conte como você atende hoje</h3>
+          <p>Uma conversa pelo WhatsApp sobre seus clientes, seus horários e onde a venda trava.</p>
+          <div class="panel"><img class="frame__img" src="assets/img/photo-f187688198-960.jpg" alt="Mãos segurando um celular sobre o teclado de um notebook" loading="lazy" data-source="stand-in" data-subject="empresário no celular e no notebook"></div>
+        </article>
+        <article class="card card--row span-4">
+          <span class="step-num">2</span>
+          <h3>Receba a proposta por escrito</h3>
+          <p>O que faz sentido para o seu caso, com prazo e valor fechados antes de começar.</p>
+          <div class="panel"><img class="frame__img" src="assets/img/photo-f194134742-960.jpg" alt="Mulher lendo uma mensagem no celular" loading="lazy" data-source="stand-in" data-subject="cliente lendo a proposta no celular" style="object-position: 50% 35%"></div>
+        </article>
+        <article class="card card--row span-4">
+          <span class="step-num">3</span>
+          <h3>Veja funcionando antes da entrega</h3>
+          <p>Eu configuro, testo com você e coloco no ar. Depois, ajusto o que for preciso.</p>
+          <div class="panel"><img class="frame__img" src="assets/img/reels-frame.jpg" alt="Tela de conversa em que o agente de IA confirma um agendamento" loading="lazy" data-source="client" data-subject="agente de IA confirmando agendamento" style="object-position: 50% 62%"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="perguntas" aria-labelledby="perguntas-h">
+    <div class="wrap grid grid--top">
+      <div class="span-6">
+        <div class="section-head">
+          <h2 id="perguntas-h">Perguntas frequentes sobre o agente de IA e os sites</h2>
+        </div>
+        <div class="faq">
+        <div class="faq__item"><h3>Quanto custa um agente de IA ou um site?</h3><p>Depende do serviço e do tamanho da empresa. Depois da conversa, envio a proposta com o valor fechado.</p></div>
+        <div class="faq__item"><h3>A agência atende fora de Natal?</h3><p>Sim. Atendo empresas de todo o Brasil, com tudo combinado pelo WhatsApp.</p></div>
+        <div class="faq__item"><h3>O agente de IA substitui minha equipe?</h3><p>Não. Ele responde as perguntas que se repetem e passa para a sua equipe o que precisa de uma pessoa.</p></div>
+        <div class="faq__item"><h3>A verba dos anúncios está incluída?</h3><p>Não. Você decide o valor e paga direto ao Meta ou ao Google.</p></div>
+      </div>
+      </div>
+      <figure class="faq__photo span-6 start-7"><img src="assets/img/photo-f196835411-960.jpg" srcset="assets/img/photo-f196835411-500.jpg 500w, assets/img/photo-f196835411-960.jpg 960w, assets/img/photo-f196835411.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mulher com fones de ouvido digitando no celular" loading="lazy" decoding="async" data-source="stand-in" data-subject="cliente digitando no celular"></figure>
+    </div>
+  </section>
 </main>
 
-<footer><div class="wrap">
-  <div>Willames Store · D W DA S ASEVEDO COMERCIO E SERVICOS<br>CNPJ 43.743.105/0001-43 · Parnamirim/RN</div>
-  <div><a href="politica-de-privacidade.html">Política de Privacidade</a><br>© 2026 Willames Store</div>
-</div></footer>
+<footer class="footer closing" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Fale com a Willames Store pelo WhatsApp</h2>
+        <p>(84) 98867-4691. Quem responde é o Daniel, dono da agência.</p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="#top"><img src="logo.svg" alt="" width="32" height="32">Willames Store</a>
+          <p class="footer__lede">Automação, sites e anúncios para empresas.</p>
+        </div>
+        <div class="span-2 footer__col"><h3>Serviços</h3><ul><li><a href="#servicos">Agente de IA</a></li><li><a href="#servicos">Sites</a></li><li><a href="#servicos">Anúncios</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Trabalhos</h3><ul><li><a href="#trabalhos">Carrosséis</a></li><li><a href="https://www.instagram.com/danielwillamess/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Etapas</h3><ul><li><a href="#como-funciona">Como funciona</a></li><li><a href="#perguntas">Perguntas</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Contato</h3><ul><li><a href="https://wa.me/5584988674691">WhatsApp</a></li><li><a href="mailto:willamesstore@gmail.com">E-mail</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Willames Store · D W DA S ASEVEDO COMERCIO E SERVICOS · CNPJ 43.743.105/0001-43 · Parnamirim-RN &nbsp; <a href="politica-de-privacidade.html">Política de Privacidade</a></span>
+        <div class="socials"></div>
+        <a class="credits" href="credits.html">Fotos via Wikimedia Commons</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-<a class="zap" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H10l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></a>
+<nav class="actionbar" aria-label="Ações rápidas">
+  <a class="btn btn--primary" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
+</nav>
+
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script>
+  // quem pede menos movimento vê o vídeo parado, com os controles
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('.hero__demo video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+</script>
 </body>
 </html>
