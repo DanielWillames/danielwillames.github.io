@@ -1,80 +1,141 @@
 <!doctype html>
-<html lang="pt-BR" data-type="service" data-radius="soft" data-buttons="block" data-motion>
+<html lang="pt-BR" data-ground="sky" data-type="software" data-radius="soft" data-buttons="arrow" data-motion>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Willames Store: agência de automação e IA em Natal-RN</title>
-<meta name="description" content="Agentes de IA que atendem no WhatsApp e no Instagram, sites que levam para a conversa e anúncios no Meta e no Google, para empresas de todo o Brasil.">
+<title>Willames Store: agentes de IA no WhatsApp para empresas</title>
+<meta name="description" content="Agentes de IA que respondem seus clientes no WhatsApp e no Instagram a qualquer hora, mais sites e anúncios no Meta e no Google. Natal-RN, para todo o Brasil.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Willames Store: agência de automação e IA em Natal-RN">
-<meta property="og:description" content="Agentes de IA no WhatsApp, sites e anúncios para empresas.">
+<meta property="og:title" content="Willames Store: agentes de IA no WhatsApp para empresas">
+<meta property="og:description" content="Agente de IA no WhatsApp, sites e anúncios para empresas.">
 <meta property="og:url" content="https://willamesstore.com.br/">
 <meta property="og:image" content="https://willamesstore.com.br/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0a1a3f">
 <link rel="canonical" href="https://willamesstore.com.br/">
-<meta name="site-kind" content="other">
-<meta name="page-type" content="service">
+<meta name="site-kind" content="software">
+<meta name="page-type" content="software">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400..700&family=Figtree:wght@400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400..700&family=Figtree:wght@400..600&family=Martian+Mono:wght@400..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
 <link rel="stylesheet" href="assets/layout/layout.css">
 <link rel="stylesheet" href="assets/icons/icon.css">
 <style>
 :root {
-  --p-bg: #0a1a3f; --p-surface: #11265a; --p-ink: #f4f7ff; --p-muted: #a7b2cc;
-  --p-accent: #5ce1e6; --p-accent-ink: #0a1a3f; --p-action: #3b8bff; --p-action-ink: #0a1a3f;
-  --p-inv-bg: #11265a; --p-inv-surface: #1a3272; --p-inv-ink: #f4f7ff; --p-inv-muted: #b4bfd8;
-  --p-inv-accent: #5ce1e6; --p-inv-accent-ink: #0a1a3f; --p-inv-action: #3b8bff; --p-inv-action-ink: #0a1a3f;
+  --p-bg: #0a1a3f; --p-surface: #11265a; --p-ink: #f4f7ff; --p-muted: #b9c6e4;
+  --p-accent: #3b8bff; --p-accent-ink: #0a1a3f; --p-action: #3b8bff; --p-action-ink: #0a1a3f;
+  --p-inv-bg: #f4f7ff; --p-inv-surface: #e1e6f1; --p-inv-ink: #0a1a3f; --p-inv-muted: #52617e;
+  --p-inv-accent: #3b8bff; --p-inv-accent-ink: #0a1a3f; --p-inv-action: #3b8bff; --p-inv-action-ink: #0a1a3f;
   --font-display: "Sora", system-ui, sans-serif;
   --font-text: "Figtree", system-ui, sans-serif;
+  --font-mono: "Martian Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --display-weight: 400;
   --display-tracking: -0.035em;
   --display-tracking-xl: -0.045em;
-  --ly-scale: 0.8;
+  --ly-scale: 0.9;
 }
 </style>
+<link rel="stylesheet" href="assets/diagrams/diagram.css">
+<link rel="stylesheet" href="assets/moments/giant-type-pass/moment.css">
+<link rel="stylesheet" href="assets/ws/ws-fx.css">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
-<link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
+<link rel="modulepreload" href="assets/moments/giant-type-pass/moment.js">
 <style>
   .nav__logo img { width: 32px; height: 32px; }
-  /* hero: o Reels do agente rodando ao lado do texto, sem nada por cima do vídeo */
-  .hero__demo { --demo-pad: var(--s-6); position: relative; border-radius: var(--r-lg); background: var(--surface); overflow: hidden; }
-  .hero__demo video { position: absolute; top: var(--demo-pad); left: 50%; transform: translateX(-50%); display: block; height: calc(100% - 2 * var(--demo-pad)); width: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 28px; border: 1px solid #2a4380; background: #0a1a3f; }
-  .hero__proof { list-style: none; padding: 0; margin: var(--s-6) 0 0; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); color: var(--muted); font-size: var(--t-small); }
-  .hero__proof li { display: inline-flex; align-items: center; gap: var(--s-2); }
-  .hero__proof li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-  @media (max-width: 1023px) { .hero__demo { --demo-pad: var(--s-4); } }
-  @media (max-width: 639px) { .hero__proof, .hero .hero__kicker { display: none; } .hero__demo { min-height: 300px; } }
-  /* picture-develops: a foto da seção ao lado da lista, da altura do texto */
-  .develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(600px, var(--ly-fit)); }
-  .develop > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
-  .rows__value .ic { --ic-s: 22px; margin-left: var(--s-2); }
-  .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-body); margin-top: var(--s-1); }
+
+  .hero__proof { font-size: var(--t-small); color: var(--muted); }
+
+  /* a moldura da direita: chão escuro da marca, a luz que segue o mouse por cima */
+  .hero__art { overflow: visible; background: none; }
+  .ws-glass { overflow: hidden; }
+  .ws-chat > div > .ly-piece { position: absolute; }
+  .ws-chat { height: min(640px, var(--ly-fit, 640px)); --ry: -4deg; --rx: 2deg; --ly-cut-room: 48px; }
+  .ws-chat > div > .ly-piece--main { left: 28px; top: 52px; width: calc(100% - 0px); }
+  .ws-chat > div > .ly-piece--note { left: 34px; bottom: 30px; width: 290px; z-index: 2; box-shadow: 0 24px 50px -16px rgb(2 8 24 / .7); }
+
+  /* a conversa do agente de IA, desenhada em HTML (dentro do visual) */
+  .wa { background: rgb(11 21 48 / .78); border: 1px solid #2a4380; border-radius: 14px; overflow: hidden; font: 400 15px/1.4 var(--font-text); color: #e9eefc; }
+  .wa__bar { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #132a63; border-bottom: 1px solid #2a4380; }
+  .wa__bar img { width: 22px; height: 22px; }
+  .wa__bar b { font-weight: 600; }
+  .wa__bar small { color: #9fb0d6; font-size: 13px; margin-left: auto; padding-right: var(--ly-cut-room); }
+  .wa__body { display: grid; gap: 10px; padding: 18px var(--ly-cut-room) 22px 18px; }
+  .wa__day { justify-self: center; font-size: 12px; color: #9fb0d6; background: #132a63; border-radius: 99px; padding: 3px 10px; }
+  .wa__msg { max-width: 78%; padding: 9px 12px 18px; border-radius: 12px; position: relative; }
+  .wa__msg time { position: absolute; right: 10px; bottom: 4px; font-size: 11px; color: #9fb0d6; }
+  .wa__msg--in { justify-self: start; background: #17306b; border-top-left-radius: 4px; }
+  .wa__msg--out { justify-self: end; background: #1d4fae; border-top-right-radius: 4px; }
+  .wa__msg--out time { color: #cfe0ff; }
+  .wa__tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #5ce1e6; margin-bottom: 2px; }
+
+  .ok-card { background: #f4f7ff; color: #0a1a3f; border-radius: 12px; padding: 14px 16px; font: 400 14px/1.4 var(--font-text); }
+  .ok-card__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+  .ok-card h3 { margin: 0; font: 600 15px/1.3 var(--font-text); letter-spacing: 0; }
+  .ok-chip { display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 8px; border-radius: 99px; font-size: 13px; font-weight: 500; background: #dfeaff; color: #1446a8; white-space: nowrap; }
+  .ok-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .ok-line { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 13px; color: #33405e; border-top: 1px solid rgb(10 26 63 / .08); }
+  .ok-line i { width: 18px; height: 18px; border-radius: 50%; flex: none; display: grid; place-items: center; background: #dfeaff; color: #1446a8; font-style: normal; font-size: 12px; font-weight: 700; }
+  .ok-line b { font-weight: 600; color: #0a1a3f; }
+  @media (max-width: 1023px) { .ws-chat > div > .ly-piece--note { left: var(--s-4); bottom: var(--s-4); width: 270px; } .ws-chat { height: 560px; margin-top: var(--s-7); } }
+  @media (max-width: 639px) { .ws-rail, .ws-chat > div > .ly-piece--note { display: none; } .ws-chat > div > .ly-piece--main { left: 14px; top: 40px; } .ws-chat { height: 440px; } }
+  @media (max-width: 639px) { .wa__msg:nth-of-type(n+4) { display: none; } .wa { font-size: 14px; } }
+
+  /* serviços: três cartões, painéis no chão iluminado */
+  #servicos .panel { --p-h: 340px; }
+  .site-mock { width: min(100%, 300px); margin: 0 auto; background: #f4f7ff; color: #0a1a3f; border-radius: 12px; overflow: hidden; font: 400 13px/1.4 var(--font-text); }
+  .site-mock__bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: #e1e6f1; font-size: 12px; color: #52617e; }
+  .site-mock__bar i { width: 8px; height: 8px; border-radius: 50%; background: #b8c3da; }
+  .site-mock__bar span { margin-left: 6px; }
+  .site-mock__body { padding: 18px 16px 20px; display: grid; gap: 10px; }
+  .site-mock__body strong { font: 600 19px/1.15 var(--font-display); letter-spacing: -0.02em; }
+  .site-mock__body p { margin: 0; color: #52617e; }
+  .site-mock__btn { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 10px; background: #3b8bff; color: #0a1a3f; font-weight: 600; }
+  .site-mock__btn img { width: 16px; height: 16px; }
+
+  /* o agente em vídeo: o Reels dentro de um celular, sobre o chão da seção */
+  .phone-frame { position: relative; height: min(640px, var(--ly-fit, 640px)); border-radius: 22px; overflow: hidden; border: 1px solid rgb(92 225 230 / .28);
+    background:
+      radial-gradient(circle at 22% 28%, rgb(236 254 255 / .9) 0 2%, rgb(134 241 244 / .85) 6%, #2fb5d6 13%, rgb(27 74 152 / 0) 20%),
+      radial-gradient(circle at 82% 78%, rgb(227 230 255 / .9) 0 2%, rgb(143 155 255 / .85) 7%, #5060e2 15%, rgb(32 38 114 / 0) 23%),
+      radial-gradient(60% 60% at 70% 20%, rgb(59 139 255 / .25), transparent 70%),
+      linear-gradient(140deg, rgb(255 255 255 / .06), transparent 40%), #0b1a46;
+    box-shadow: 0 40px 90px -24px rgb(2 8 24 / .8), 0 0 40px rgb(92 225 230 / .08); }
+  .phone-frame video { position: absolute; top: var(--s-6); left: 50%; transform: translateX(-50%); height: calc(100% - 2 * var(--s-6)); width: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 28px; border: 1px solid rgb(92 225 230 / .35); background: #0a1a3f; box-shadow: 0 30px 60px -10px rgb(2 8 24 / .8); }
+  .agent-list { list-style: none; padding: 0; margin: var(--s-7) 0 0; display: grid; gap: var(--s-5); }
+  .agent-list li { padding-top: var(--s-4); border-top: 1px solid #2a4380; }
+  .agent-list b { display: block; font-weight: 600; }
+  .agent-list span { color: var(--muted); }
+  @media (max-width: 1023px) { .phone-frame { height: 520px; margin-top: var(--s-7); } }
+  @media (max-width: 639px) { .phone-frame { height: 440px; } .phone-frame video { top: var(--s-4); height: calc(100% - 2 * var(--s-4)); } }
+
+  #frase .mo-gt__type { font-size: clamp(52px, 9.4vw, 144px); line-height: .98; }
+  #frase .mo-gt__row { margin-top: var(--s-6); }
   .work__img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid #2a4380; border-radius: var(--r-lg); }
-  #como-funciona .panel { --p-h: 300px; }
+  #como-funciona .panel { --p-h: 260px; }
   .faq__photo { margin: 0; border-radius: var(--r-lg); overflow: hidden; height: min(600px, var(--ly-fit)); }
-  @media (max-width: 1023px) { .faq__photo { height: auto; aspect-ratio: 16 / 9; margin-top: var(--s-7); } }
   .faq__photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  @media (max-width: 1023px) { .develop { height: auto; aspect-ratio: 4 / 3; margin-top: var(--s-7); } }
-  @media (min-width: 1024px) and (max-width: 1279px) { #servicos .rows__name small { display: none; } #como-funciona { --h: 2 } }
-  @media (min-width: 640px) and (max-width: 1023px) { #servicos, #trabalhos, #como-funciona { --h: 2 } }
-  @media (max-width: 639px) { #como-funciona .panel { --p-h: 200px; } #servicos, #trabalhos, #como-funciona { --hm: 2 } .faq__photo { display: none; } }
+  @media (max-width: 1023px) { .faq__photo { height: auto; aspect-ratio: 16 / 9; margin-top: var(--s-7); } }
+  @media (min-width: 640px) and (max-width: 1023px) { #servicos, #trabalhos, #como-funciona, #agente { --h: 2 } }
+  @media (max-width: 639px) { #servicos .panel, #como-funciona .panel { --p-h: 200px; } #servicos, #trabalhos, #como-funciona, #agente { --hm: 2 } .faq__photo { display: none; } }
 </style>
 </head>
 <body>
-<!-- type: service
-     deal: hero split (era film; o texto por cima atrapalhava o vídeo), nav nav-centre, close close-type, footer footer-columns, rhythm dark-band, buttons block, mark: o logo da própria Willames Store
-     palette: as cores da marca (start.mjs brand: #F4F7FF, #0A1A3F, #3B8BFF), tipo: Sora (fonte da marca) + Figtree
-     moments: picture-develops na seção de serviços -->
-<header class="nav nav--centre">
+<!-- type: software (o agente de IA é o produto; o brief pede fundo vivo e movimento com o mouse, só liberados em tech)
+     deal: hero collage (sorteado entre os heróis com luz que segue o mouse), nav nav-cards, close close-type, footer footer-dark (no chão da página, que já é escuro), rhythm space, buttons arrow, mark: o logo da própria Willames Store
+     palette: as cores da marca (start.mjs brand: #0A1A3F, #F4F7FF, #3B8BFF), tipo Sora + Figtree; lit ground sky
+     cena do hero própria (assets/ws): formas 3D flutuantes em SVG, partículas ligadas por linhas que reagem ao mouse, esfera e anéis, painel de vidro que inclina com o mouse; luz que segue o mouse em todas as seções e cartões (como o eucriosites.com.br); título com palavra que troca; faixa de serviços correndo
+     moments: giant-type-pass na seção #frase (a foto passa por dentro das letras ao rolar)
+     grounds: bg-dusk em #agente, bg-band em #como-funciona -->
+<header class="nav">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Pular para o conteúdo</a>
     <a class="nav__logo" href="#top"><img src="logo.svg" alt="" width="32" height="32">Willames Store</a>
@@ -83,23 +144,27 @@
         <a class="nav__link" href="#servicos">Serviços <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
           <div class="wrap grid">
-            <div class="menu-col span-4">
-              <p class="t-label">Atendimento</p>
-              <a href="#servicos">Agente de IA<span>WhatsApp e Instagram, 24 horas</span></a>
-              <a href="#servicos">Sites e páginas de venda<span>Levam o cliente para a conversa</span></a>
-            </div>
-            <div class="menu-col span-4">
-              <p class="t-label">Anúncios e conteúdo</p>
-              <a href="#servicos">Tráfego pago no Meta<span>Instagram e Facebook</span></a>
-              <a href="#servicos">Google Ads<span>Para quem já pesquisa você</span></a>
-              <a href="#trabalhos">Vídeos e carrosséis<span>Reels e posts para o Instagram</span></a>
-            </div>
+            <a class="menu-card span-4" href="#agente">
+              <div class="panel"><img class="frame__img" src="assets/img/reels-frame.jpg" alt="Conversa em que o agente de IA confirma um horário" style="object-position: 50% 62%"></div>
+              <span class="t-card">Agente de IA</span>
+              <span class="t-small muted">WhatsApp e Instagram, 24 horas</span>
+            </a>
+            <a class="menu-card span-4" href="#servicos">
+              <div class="panel"><img class="frame__img" src="assets/img/photo-f187688198-960.jpg" alt="Mãos com um celular sobre o teclado de um notebook"></div>
+              <span class="t-card">Sites e anúncios</span>
+              <span class="t-small muted">Páginas rápidas, Meta e Google</span>
+            </a>
+            <a class="menu-card span-4" href="#trabalhos">
+              <div class="panel"><img class="frame__img" src="assets/img/work-carrossel-o-que-eu-faco.jpg" alt="Capa de carrossel da Willames Store" style="object-position: 50% 30%"></div>
+              <span class="t-card">Vídeos e carrosséis</span>
+              <span class="t-small muted">Reels e posts para o Instagram</span>
+            </a>
           </div>
         </div>
       </div>
+      <div class="nav__item"><a class="nav__link" href="#agente">Agente</a></div>
       <div class="nav__item"><a class="nav__link" href="#trabalhos">Trabalhos</a></div>
       <div class="nav__item"><a class="nav__link" href="#como-funciona">Etapas</a></div>
-      <div class="nav__item"><a class="nav__link" href="#perguntas">Perguntas</a></div>
     </nav>
     <div class="nav__actions">
       <a class="btn btn--primary" href="https://wa.me/5584991680473?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
@@ -111,51 +176,143 @@
 </header>
 
 <main id="top">
-  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+  <section class="hero hero--collage ws-hero" data-enter aria-labelledby="hero-h">
+    <div class="ws-scene" aria-hidden="true">
+      <div class="ws-base"></div>
+      <canvas></canvas>
+      <svg class="ws-blobs" preserveAspectRatio="none"></svg>
+      <div class="ws-float ws-float--far" data-x=".36" data-y=".83" data-d=".35" data-r="-4"><div class="ws-card"><div class="ws-card__head"><img src="assets/icons/google-ads.svg" alt=""><span class="ws-card__url">Anúncio · suaclinica.com.br</span></div><b>Clínica de estética em Natal</b><small>Agende sua avaliação pelo WhatsApp</small></div></div>
+      <div class="ws-float ws-float--mid" data-x=".475" data-y=".36" data-d=".7" data-r="-8"><div class="ws-post"><img src="assets/img/work-carrossel-agente-ia-whatsapp.jpg" alt=""><div class="ws-post__bar"><img src="assets/icons/instagram.svg" alt="">Carrossel</div></div></div>
+      <div class="ws-float ws-float--far" data-x=".12" data-y=".86" data-d=".3" data-r="5"><div class="ws-mini-site"><div class="ws-mini-site__bar"><i></i><i></i><i></i></div><div class="ws-mini-site__body"><b>Seu site no celular</b><span>Rápido e direto ao ponto</span><span class="ws-mini-site__btn">Chamar no WhatsApp</span></div></div></div>
+      <div class="ws-float ws-float--mid" data-x=".54" data-y=".72" data-d=".9" data-r="6" data-m=".87,.2"><div class="ws-tile"><img src="assets/icons/meta.svg" alt=""></div></div>
+      <div class="ws-float ws-float--far" data-x=".26" data-y=".05" data-d=".4" data-r="-6"><div class="ws-tile"><img src="assets/icons/instagram.svg" alt=""></div></div>
+      <div class="ws-float ws-float--far" data-x=".985" data-y=".06" data-d=".5" data-r="8"><div class="ws-tile"><img src="assets/icons/google-ads.svg" alt=""></div></div>
+      <div class="ws-orb"></div>
+      <div class="ws-rings"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i></i></div>
+    </div>
     <div class="wrap"><div class="hero-text grid hero__grid">
-      <div class="hero__text span-6">
-        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Atendimento no WhatsApp 24 horas</p>
-        <h1 id="hero-h">Agência de automação e IA em Natal-RN</h1>
-        <p class="hero__lead">Agentes de IA que respondem seus clientes no WhatsApp e no Instagram a qualquer hora, sites que levam para a conversa e anúncios no Meta e no Google.</p>
+      <div class="hero__text span-5">
+        <h1 id="hero-h" aria-label="Agentes de IA que atendem no WhatsApp da sua empresa">Agentes de IA que <span class="ws-rotate" data-words="atendem,vendem,agendam,respondem"><span>atendem</span></span> no WhatsApp</h1>
+        <p class="hero__lead">O agente responde seus clientes 24 horas por dia, em segundos: tira dúvidas, marca horários e envia orçamentos. Junto, sites e anúncios no Meta e no Google.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="https://wa.me/5584991680473?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
           <a class="btn btn--secondary" href="#servicos">Ver os serviços</a>
         </div>
-        <ul class="hero__proof">
-          <li>Proposta com valor fechado</li>
-          <li>Empresas de todo o Brasil</li>
-          <li>Fala direto com o dono</li>
-        </ul>
+        <p class="hero__proof">De Natal-RN para empresas de todo o Brasil. Proposta com valor fechado.</p>
       </div>
-      <div class="hero__media hero__demo span-6 start-7">
-        <!-- o Reels do agente de IA (marketing/conteudo/reels-agente-clinica-2026-11-26), mudo e em loop -->
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/img/reels-frame.jpg" width="1080" height="1920" aria-label="Demonstração: o agente de IA de uma clínica responde às 23h no WhatsApp e confirma uma consulta">
-          <source src="assets/media/reels-agente.mp4" type="video/mp4">
-        </video>
+      <div class="hero__art ws-stage3d span-6 start-7">
+        <div class="ws-glass ws-video" data-video style="position:absolute;inset:0">
+          <div class="ws-glass__dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="ws-rail" aria-hidden="true">
+            <span class="is-on"><img src="assets/icons/whatsapp.svg" alt=""></span>
+            <span><img src="assets/icons/instagram.svg" alt=""></span>
+            <span><img src="assets/icons/meta.svg" alt=""></span>
+            <span><img src="assets/icons/google-ads.svg" alt=""></span>
+          </div>
+          <!-- o Reels do agente de IA (marketing/conteudo/reels-agente-clinica-2026-11-26), mudo e em loop -->
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/img/reels-frame.jpg" width="1080" height="1920" aria-label="Demonstração: o agente de IA de uma clínica responde às 23h no WhatsApp e confirma uma consulta">
+            <source src="assets/media/reels-agente.mp4" type="video/mp4">
+          </video>
+          <button class="loop-pause" type="button" aria-label="Pausar o vídeo" aria-pressed="false"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 2h3v10H3zM8 2h3v10H8z"/></svg></button>
+        </div>
       </div>
     </div></div>
+    <div class="ws-front" aria-hidden="true"><svg preserveAspectRatio="none"></svg>
+      <div class="ws-float" data-x=".905" data-y=".2" data-d="1.3" data-r="3"><div class="ws-bubble"><img src="assets/icons/whatsapp.svg" alt="">Horário marcado ✓</div></div>
+      <div class="ws-float" data-x=".925" data-y=".78" data-d="1.4" data-r="-5"><div class="ws-card" style="width:170px"><div class="ws-card__head"><img src="assets/icons/meta.svg" alt=""><b>Contatos pelo anúncio</b></div><div class="ws-bars"><i style="--h:30%"></i><i style="--h:44%"></i><i style="--h:40%"></i><i style="--h:62%"></i><i style="--h:78%"></i><i style="--h:96%"></i></div></div></div>
+    </div>
+    <button class="ws-pause" type="button" aria-label="Pausar o movimento" aria-pressed="false"></button>
   </section>
 
   <section class="section" id="servicos" aria-labelledby="servicos-h">
-    <div class="wrap grid grid--top">
-      <div class="span-6">
-        <div class="section-head">
-          <h2 id="servicos-h">Agente de IA, sites e anúncios para a sua empresa</h2>
-          <p>Você contrata um ou combina vários. Eu cuido da parte técnica, da conversa inicial até a entrega.</p>
-        </div>
-        <ul class="rows">
-          <li><span class="rows__name">Agente de IA no WhatsApp e no Instagram<small>Responde dúvidas, agenda horários e envia orçamentos a qualquer hora.</small></span><span class="rows__value"><img class="ic" data-icon="whatsapp" src="assets/icons/whatsapp.svg" alt="WhatsApp"><img class="ic" data-icon="instagram" src="assets/icons/instagram.svg" alt="Instagram"></span></li>
-          <li><span class="rows__name">Sites e páginas de venda<small>Abrem rápido no celular e levam o cliente direto para o WhatsApp.</small></span><span class="rows__value">Celular primeiro</span></li>
-          <li><span class="rows__name">Tráfego pago no Meta<small>Anúncios no Instagram e no Facebook com foco em contato e venda.</small></span><span class="rows__value"><img class="ic" data-icon="meta" src="assets/icons/meta.svg" alt="Meta"></span></li>
-          <li><span class="rows__name">Google Ads<small>Campanhas para quem já pesquisa o seu serviço no Google.</small></span><span class="rows__value"><img class="ic" data-icon="google-ads" src="assets/icons/google-ads.svg" alt="Google Ads"></span></li>
-          <li><span class="rows__name">Vídeos e carrosséis<small>Reels e carrosséis com a identidade visual da sua empresa.</small></span><span class="rows__value"><img class="ic" data-icon="instagram" src="assets/icons/instagram.svg" alt="Instagram"></span></li>
-        </ul>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="servicos-h">Agente de IA, site e anúncios. <span class="muted">Contrate um serviço ou combine os três.</span></h2>
       </div>
-      <figure class="develop span-6 start-7" data-moment="picture-develops"><img src="assets/img/photo-f192534273.jpg" srcset="assets/img/photo-f192534273-500.jpg 500w, assets/img/photo-f192534273-960.jpg 960w, assets/img/photo-f192534273.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mulher em casa, à noite, mandando mensagem pelo celular" loading="lazy" decoding="async" data-source="stand-in" data-subject="cliente mandando mensagem à noite"></figure>
+      <div class="grid">
+        <article class="card card--row span-4">
+          <h3>Agente no WhatsApp e no Instagram</h3>
+          <p>Responde dúvidas, marca horários e envia orçamentos. O que precisa de uma pessoa vai para a sua equipe.</p>
+          <div class="panel"><div class="dg" data-diagram><script type="application/json">{"layout":"lanes","alt":"Uma mensagem no WhatsApp às 23h chega ao agente, que responde a dúvida, marca o horário e envia o orçamento.","input":{"label":"WhatsApp","icon":"whatsapp"},"core":{"label":"Agente","icon":"ui:bot"},"lanes":[{"label":"Dúvida respondida","icon":"ui:message-circle","done":true},{"label":"Horário marcado","icon":"google-calendar","done":true},{"label":"Orçamento enviado","icon":"ui:file-text","done":true}]}</script></div></div>
+        </article>
+        <article class="card card--row span-4">
+          <h3>Sites e páginas de venda</h3>
+          <p>Abrem rápido no celular e levam o visitante direto para a conversa no seu WhatsApp.</p>
+          <div class="panel" role="img" aria-label="Página de uma clínica no celular, com o botão Agendar pelo WhatsApp">
+            <div class="stage"><div class="at-center" style="--w: 300px" aria-hidden="true">
+              <div class="ui ui-site site-mock">
+                <div class="site-mock__bar"><i></i><i></i><i></i><span>suaclinica.com.br</span></div>
+                <div class="site-mock__body">
+                  <strong>Avaliação de pele em Natal</strong>
+                  <p>Horários de segunda a sábado, com confirmação na hora.</p>
+                  <span class="site-mock__btn"><img src="assets/icons/whatsapp.svg" alt="">Agendar pelo WhatsApp</span>
+                </div>
+              </div>
+            </div></div>
+          </div>
+        </article>
+        <article class="card card--row span-4">
+          <h3>Anúncios no Meta e no Google</h3>
+          <p>Campanhas no Instagram, no Facebook e na pesquisa do Google, medidas pelos contatos que chegam.</p>
+          <div class="panel"><div class="dg" data-diagram><script type="application/json">{"layout":"hub","alt":"Anúncios no Instagram, no Facebook, no Google e no site levam ao WhatsApp da empresa.","center":{"label":"Seu WhatsApp","icon":"whatsapp"},"spokes":[{"label":"Instagram","icon":"instagram"},{"label":"Facebook","icon":"facebook"},{"label":"Google Ads","icon":"google-ads"},{"label":"Seu site","icon":"ui:globe"}]}</script></div></div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="section ground-inverse" id="trabalhos" aria-labelledby="trabalhos-h">
+  <section class="section" id="agente" aria-labelledby="agente-h">
+    <div class="wrap grid grid--top">
+      <div class="span-5">
+        <div class="section-head">
+          <h2 id="agente-h">O agente de uma clínica atendendo às 23h</h2>
+          <p>Este é o tipo de conversa que o agente resolve sozinho, enquanto a recepção está fechada.</p>
+        </div>
+        <ul class="agent-list">
+          <li><div><b>Fala como a sua empresa</b><span>Aprende seus serviços, preços e horários antes de entrar no ar.</span></div></li>
+          <li><div><b>Marca na sua agenda</b><span>Oferece os horários livres e confirma com o cliente.</span></div></li>
+          <li><div><b>Passa para você quando precisa</b><span>Casos fora do roteiro vão para o seu WhatsApp com o resumo da conversa.</span></div></li>
+        </ul>
+      </div>
+      <div class="ws-glass ws-chat span-6 start-7" role="img" aria-label="Às 23h12, o agente de IA de uma clínica responde no WhatsApp, oferece dois horários e marca a consulta para sexta às 9h">
+        <div class="ws-glass__dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div aria-hidden="true">
+          <div class="ly-piece ly-piece--main wa">
+            <div class="wa__bar"><img src="assets/icons/whatsapp.svg" alt=""><b>Recepção da clínica</b><small>online agora</small></div>
+            <div class="wa__body">
+              <span class="wa__day">Hoje</span>
+              <div class="wa__msg wa__msg--in">Boa noite! Tem horário para limpeza de pele essa semana?<time>23:12</time></div>
+              <div class="wa__msg wa__msg--out"><span class="wa__tag">Agente de IA</span><br>Boa noite! Temos sexta às 9h ou às 14h30. Qual fica melhor para você?<time>23:12</time></div>
+              <div class="wa__msg wa__msg--in">Sexta às 9h, por favor<time>23:13</time></div>
+              <div class="wa__msg wa__msg--out">Pronto, está marcado. Na quinta eu te mando um lembrete por aqui.<time>23:13</time></div>
+            </div>
+          </div>
+          <div class="ly-piece ly-piece--note ok-card" data-ly-steps="700">
+            <div class="ok-card__row"><h3>Consulta marcada</h3><span class="ok-chip" data-step data-step-at="4">Na agenda</span></div>
+            <div class="ok-line" data-step><i>✓</i><span>Respondeu às <b>23h12</b></span></div>
+            <div class="ok-line" data-step><i>✓</i><span><b>Sexta, 9h</b> na agenda da clínica</span></div>
+            <div class="ok-line" data-step><i>✓</i><span>Lembrete na <b>quinta</b></span></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="frase" data-moment="giant-type-pass" data-moment-opts='{"image": "../../img/photo-f192534273.jpg", "travel": 60, "focus": 55}' aria-labelledby="frase-h">
+    <div class="wrap">
+      <h2 class="mo-gt__type" id="frase-h">Nenhum cliente<br>sem resposta</h2>
+      <div class="mo-gt__row">
+        <p>Quem manda mensagem fora do horário recebe resposta na hora. De manhã, você abre o WhatsApp e vê o que já foi resolvido.</p>
+        <a class="link" href="#como-funciona">Ver as etapas</a>
+      </div>
+      <div class="ws-marquee" aria-label="Serviços da Willames Store">
+        <div class="ws-marquee__track"><span>Agentes de IA</span><span>Sites</span><span>Meta Ads</span><span>Google Ads</span><span>Reels</span><span>Carrosséis</span><span aria-hidden="true">Agentes de IA</span><span aria-hidden="true">Sites</span><span aria-hidden="true">Meta Ads</span><span aria-hidden="true">Google Ads</span><span aria-hidden="true">Reels</span><span aria-hidden="true">Carrosséis</span></div>
+        <button class="ws-pause" type="button" aria-label="Pausar o movimento" aria-pressed="false"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="trabalhos" aria-labelledby="trabalhos-h">
     <div class="wrap">
       <div class="section-head section-head--row">
         <h2 id="trabalhos-h">Carrosséis feitos para o Instagram da Willames Store</h2>
@@ -211,11 +368,11 @@
           <h2 id="perguntas-h">Perguntas frequentes sobre o agente de IA e os sites</h2>
         </div>
         <div class="faq">
-        <div class="faq__item"><h3>Quanto custa um agente de IA ou um site?</h3><p>Depende do serviço e do tamanho da empresa. Depois da conversa, envio a proposta com o valor fechado.</p></div>
-        <div class="faq__item"><h3>A agência atende fora de Natal?</h3><p>Sim. Atendo empresas de todo o Brasil, com tudo combinado pelo WhatsApp.</p></div>
-        <div class="faq__item"><h3>O agente de IA substitui minha equipe?</h3><p>Não. Ele responde as perguntas que se repetem e passa para a sua equipe o que precisa de uma pessoa.</p></div>
-        <div class="faq__item"><h3>A verba dos anúncios está incluída?</h3><p>Não. Você decide o valor e paga direto ao Meta ou ao Google.</p></div>
-      </div>
+          <div class="faq__item"><h3>Quanto custa um agente de IA ou um site?</h3><p>Depende do serviço e do tamanho da empresa. Depois da conversa, envio a proposta com o valor fechado.</p></div>
+          <div class="faq__item"><h3>A agência atende fora de Natal?</h3><p>Sim. Atendo empresas de todo o Brasil, com tudo combinado pelo WhatsApp.</p></div>
+          <div class="faq__item"><h3>O agente de IA substitui minha equipe?</h3><p>Não. Ele responde as perguntas que se repetem e passa para a sua equipe o que precisa de uma pessoa.</p></div>
+          <div class="faq__item"><h3>A verba dos anúncios está incluída?</h3><p>Não. Você decide o valor e paga direto ao Meta ou ao Google.</p></div>
+        </div>
       </div>
       <figure class="faq__photo span-6 start-7"><img src="assets/img/photo-f196835411-960.jpg" srcset="assets/img/photo-f196835411-500.jpg 500w, assets/img/photo-f196835411-960.jpg 960w, assets/img/photo-f196835411.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mulher com fones de ouvido digitando no celular" loading="lazy" decoding="async" data-source="stand-in" data-subject="cliente digitando no celular"></figure>
     </div>
@@ -235,9 +392,9 @@
       <div class="grid">
         <div class="span-4 stack-4">
           <a class="nav__logo" href="#top"><img src="logo.svg" alt="" width="32" height="32">Willames Store</a>
-          <p class="footer__lede">Automação, sites e anúncios para empresas.</p>
+          <p class="footer__lede">Agentes de IA, sites e anúncios para empresas.</p>
         </div>
-        <div class="span-2 footer__col"><h3>Serviços</h3><ul><li><a href="#servicos">Agente de IA</a></li><li><a href="#servicos">Sites</a></li><li><a href="#servicos">Anúncios</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Serviços</h3><ul><li><a href="#agente">Agente de IA</a></li><li><a href="#servicos">Sites</a></li><li><a href="#servicos">Anúncios</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Trabalhos</h3><ul><li><a href="#trabalhos">Carrosséis</a></li><li><a href="https://www.instagram.com/danielwillamess/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Etapas</h3><ul><li><a href="#como-funciona">Como funciona</a></li><li><a href="#perguntas">Perguntas</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Contato</h3><ul><li><a href="https://wa.me/5584991680473">WhatsApp</a></li><li><a href="mailto:willamesstore@gmail.com">E-mail</a></li></ul></div>
@@ -251,16 +408,23 @@
   </div>
 </footer>
 
-<nav class="actionbar" aria-label="Ações rápidas">
-  <a class="btn btn--primary" href="https://wa.me/5584991680473?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
-</nav>
+<button class="ws-pause ws-pause--fixed" type="button" aria-label="Pausar o movimento" aria-pressed="false"></button>
+<a class="ws-wa" href="https://wa.me/5584991680473?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp"><img src="assets/icons/whatsapp.svg" alt="" width="34" height="34"><span class="ws-wa__tip" aria-hidden="true">Fale no WhatsApp</span></a>
 
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="assets/diagrams/mount.js"></script>
+<script type="module" src="assets/ws/ws-fx.js"></script>
 <script>
-  // quem pede menos movimento vê o vídeo parado, com os controles
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('.hero__demo video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  // o vídeo do agente: toca sozinho, com botão de pausa
+  document.querySelectorAll('[data-video]').forEach(f => {
+    const v = f.querySelector('video'), b = f.querySelector('.loop-pause');
+    const set = p => { b.setAttribute('aria-pressed', p); b.setAttribute('aria-label', p ? 'Tocar o vídeo' : 'Pausar o vídeo'); b.innerHTML = p ? '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2l8 5-8 5z"/></svg>' : '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 2h3v10H3zM8 2h3v10H8z"/></svg>'; };
+    b.addEventListener('click', () => { if (v.paused) { v.play(); set(false); } else { v.pause(); set(true); } });
+    // o vídeo é mudo e é a demonstração do serviço: toca sempre, com o botão de pausa
+    v.muted = true; const go = () => v.play().catch(() => {}); if (v.readyState >= 2) go(); else v.addEventListener('canplay', go, { once: true }); go();
+  });
 </script>
 </body>
 </html>
