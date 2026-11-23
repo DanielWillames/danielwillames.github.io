@@ -98,10 +98,7 @@ function hero() {
   };
   // posições em frações do hero; r em fração do lado de referência; depth = quanto segue o mouse
   const wide = () => innerWidth >= 1024;
-  const B = [
-    { x: .70, y: .30, r: .20, g: 'blue',   d: .4, s: 1.1, sp: .5, o: .55, m: [.9, .78, .16] },
-    { x: .93, y: .82, r: .13, g: 'cyan',   d: .7, s: 4.2, sp: .6, o: .5, m: [.06, .96, .12] },
-  ].map(b => mk(back, 'wb', b));
+  const B = [];  // as formas orgânicas saíram: o topo fica com o painel, a esfera e as telas dos serviços
   const F = [];
   // as imagens dos serviços que flutuam: data-x/y (fração do hero), data-d (profundidade), data-r (giro), data-m="x,y" no celular ou "off"
   const floats = [...h.querySelectorAll('.ws-float')].map((el, i) => ({ el, x: +el.dataset.x, y: +el.dataset.y, d: +(el.dataset.d || .6), r: +(el.dataset.r || 0), m: el.dataset.m, s: i * 1.9 + .7 }));
@@ -207,24 +204,39 @@ function siteBg() {
   const cv = document.createElement('canvas');
   const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('preserveAspectRatio', 'none');
   layer.append(cv, svg);
-  const icons = ['whatsapp', 'instagram', 'meta', 'google-ads', 'whatsapp', 'instagram'];
-  const tiles = icons.map((n, i) => {
-    const el = document.createElement('div'); el.className = 'ws-bg__tile';
-    el.innerHTML = `<img src="assets/icons/${n}.svg" alt="">`;
+  // mini telas dos serviços nas laterais, ligadas por linhas de fluxo com um pulso de luz
+  const ic = n => `<img src="assets/icons/${n}.svg" alt="">`;
+  const CARDS = [
+    // coluna da esquerda: quem procura no Google chega no site, fala com o agente e marca o horário
+    { x: .085, y: .00, d: .5, h: `<div class="ws-card"><div class="ws-card__head">${ic('google-ads')}<span class="ws-card__url">Anúncio · suaempresa.com.br</span></div><b>O que o cliente procura, na hora</b><small>Google Ads</small></div>` },
+    { x: .085, y: .27, d: .5, h: `<div class="ws-mini-site"><div class="ws-mini-site__bar"><i></i><i></i><i></i></div><div class="ws-mini-site__body"><b>Seu site no celular</b><span>Rápido e direto ao ponto</span><span class="ws-mini-site__btn">Chamar no WhatsApp</span></div></div>` },
+    { x: .085, y: .54, d: .5, h: `<div class="ws-card"><div class="ws-card__head">${ic('ui-bot')}<b>Agente de IA</b></div>Respondeu em segundos<small>online 24 horas</small></div>` },
+    { x: .085, y: .81, d: .5, h: `<div class="ws-bubble">${ic('whatsapp')}Horário marcado ✓</div>` },
+    // coluna da direita: anúncio no Instagram, Reels e carrossel trazem o contato
+    { x: .915, y: .13, d: .7, h: `<div class="ws-card"><div class="ws-card__head">${ic('meta')}<b>Anúncio no Instagram</b></div>Contatos pelo anúncio<div class="ws-bars"><i style="--h:30%"></i><i style="--h:45%"></i><i style="--h:40%"></i><i style="--h:62%"></i><i style="--h:78%"></i><i style="--h:95%"></i></div></div>` },
+    { x: .915, y: .40, d: .7, h: `<div class="ws-card ws-card--reels"><div class="ws-card__head">${ic('instagram')}<b>Reels</b></div><div class="ws-reels"><i></i></div><small>Vídeos da sua marca</small></div>` },
+    { x: .915, y: .67, d: .7, h: `<div class="ws-card"><div class="ws-card__head">${ic('instagram')}<b>Carrossel</b></div>Conteúdo que gera confiança<div class="ws-dots"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>` },
+    { x: .915, y: .94, d: .7, h: `<div class="ws-bubble">${ic('ui-message-circle')}Novo contato pelo Instagram</div>` },
+  ];
+  const tiles = CARDS.map((c, i) => {
+    const el = document.createElement('div'); el.className = 'ws-bg__card'; el.innerHTML = c.h;
     layer.append(el);
-    return { el, x: [.06, .93, .18, .82, .5, .96][i], y: [.22, .38, .7, .86, .1, .62][i], d: [.5, .8, .35, .65, .45, .9][i], s: i * 2.1 };
+    return { ...c, el, s: i * 2.1, px: 0, py: 0 };
   });
+  const LINKS = [[0, 1], [1, 2], [2, 3], [4, 5], [5, 6], [6, 7]].map(([a, b], i) => ({ a: tiles[a], b: tiles[b], s: i * .37 }));
   document.body.prepend(layer);
-  defs(svg, 'gb');
-  const B = [
-    { x: .9, y: .2, r: .16, g: 'blue', d: .5, s: 1.3, sp: .45, o: .32 },
-    { x: .06, y: .55, r: .13, g: 'cyan', d: .8, s: 3.7, sp: .55, o: .28 },
-    { x: .75, y: .95, r: .12, g: 'indigo', d: .65, s: 5.2, sp: .5, o: .3 },
-  ].map(b => { const p = document.createElementNS(NS, 'path'); p.setAttribute('fill', `url(#gb-${b.g})`); p.setAttribute('opacity', b.o); svg.append(p); return { ...b, el: p }; });
+  // as telas ficam na margem livre ao lado do conteúdo; sem margem suficiente, somem
+  let gutter = 0; const CW = 164;
+  const measure = () => {
+    const w = document.querySelector('main section:not(.ws-hero) .wrap') || document.querySelector('main .wrap');
+    gutter = w ? w.getBoundingClientRect().left + parseFloat(getComputedStyle(w).paddingLeft) : 0;
+  };
+  const showCards = () => gutter >= 110;
 
   let W = 0, H = 0, dpr = 1, ctx = cv.getContext('2d'), dots = [];
   const mouse = { x: .5, y: .5, tx: .5, ty: .5, px: -9999, py: -9999, in: false };
   function size() {
+    measure();
     W = innerWidth; H = innerHeight;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     dpr = Math.min(devicePixelRatio || 1, 1.5);
@@ -238,13 +250,14 @@ function siteBg() {
     t += dt;
     mouse.x += (mouse.tx - mouse.x) * .06; mouse.y += (mouse.ty - mouse.y) * .06;
     const mx = (mouse.x - .5) * 50, my = (mouse.y - .5) * 34, sy = scrollY, R = Math.max(Math.min(W, H), 520);
-    for (const b of B) {
-      const y = wrap(b.y * H * 1.6 - sy * b.d * .25, H * 1.6) - H * .3;
-      b.el.setAttribute('d', blobPath(b.x * W + Math.sin(t * .3 + b.s) * 20 + mx * b.d, y + Math.cos(t * .27 + b.s) * 24 + my * b.d, b.r * R, t * b.sp, b.s));
-    }
+    const cards = showCards();
     for (const f of tiles) {
+      if (!cards) { f.el.style.display = 'none'; continue; }
+      f.el.style.display = '';
       const y = wrap(f.y * H * 1.5 - sy * f.d * .35, H * 1.5) - H * .25;
-      f.el.style.transform = `translate(${(f.x * W + mx * f.d * 1.4 + Math.sin(t * .4 + f.s) * 10).toFixed(1)}px, ${(y + my * f.d * 1.4 + Math.cos(t * .35 + f.s) * 12).toFixed(1)}px) rotate(${(Math.sin(t * .25 + f.s) * 8).toFixed(1)}deg)`;
+      f.px = (f.x < .5 ? gutter - 14 - CW / 2 : W - gutter + 14 + CW / 2) + mx * f.d * .6 + Math.sin(t * .4 + f.s) * 5;
+      f.py = y + my * f.d * 1.4 + Math.cos(t * .35 + f.s) * 10;
+      f.el.style.transform = `translate(${f.px.toFixed(1)}px, ${f.py.toFixed(1)}px) translate(-50%, -50%) rotate(${(Math.sin(t * .25 + f.s) * 2.5).toFixed(2)}deg) scale(.82)`;
     }
     // as partículas acompanham um pouco a rolagem
     const dy = (sy - lastY) * .15; lastY = sy;
@@ -265,6 +278,25 @@ function siteBg() {
       if (mouse.in) { const d = Math.hypot(a.x - mouse.px, a.y - mouse.py); if (d < ML) { ctx.strokeStyle = `rgba(143,196,255,${(1 - d / ML) * .4})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.px, mouse.py); ctx.stroke(); } }
       ctx.fillStyle = `rgba(214,240,255,${.25 + a.r * .2})`; ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
     }
+    if (cards) flow();
+  }
+  // linhas de fluxo entre as mini telas, com um pulso de luz descendo
+  function flow() {
+    ctx.save();
+    for (const k of LINKS) {
+      const { a, b } = k, d = Math.hypot(b.px - a.px, b.py - a.py);
+      if (d > H * .75 || b.py < a.py) continue;  // a tela deu a volta na rolagem: sem linha
+      const side = a.x < .5 ? -1 : 1, cx = (a.px + b.px) / 2 + side * 46, cy = (a.py + b.py) / 2;
+      const fade = Math.min(1, Math.min(a.py, H - b.py) / 120 + .35);
+      ctx.setLineDash([3, 7]); ctx.lineWidth = 1.2; ctx.strokeStyle = `rgba(92,225,230,${.28 * fade})`;
+      ctx.beginPath(); ctx.moveTo(a.px, a.py); ctx.quadraticCurveTo(cx, cy, b.px, b.py); ctx.stroke();
+      const u = (t * .22 + k.s) % 1, v = 1 - u;
+      const x = v * v * a.px + 2 * v * u * cx + u * u * b.px, y = v * v * a.py + 2 * v * u * cy + u * u * b.py;
+      const g = ctx.createRadialGradient(x, y, 0, x, y, 14);
+      g.addColorStop(0, `rgba(214,251,255,${.95 * fade})`); g.addColorStop(.25, `rgba(92,225,230,${.55 * fade})`); g.addColorStop(1, 'rgba(59,139,255,0)');
+      ctx.setLineDash([]); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 14, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.restore();
   }
   size(); draw(0);
   let q = 0; const once = () => { if (!q) q = requestAnimationFrame(() => { q = 0; draw(0); }); };

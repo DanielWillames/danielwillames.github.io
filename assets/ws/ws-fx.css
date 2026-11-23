@@ -176,3 +176,10 @@ main > section:not(.ws-hero), footer.closing { background-color: transparent !im
 .ws-scene .ws-base { -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent); mask-image: linear-gradient(180deg, #000 82%, transparent); }
 .ws-pause--fixed { position: fixed; left: 16px; right: auto; bottom: 16px; z-index: 59; }
 @media (max-width: 639px) { .ws-bg__tile { display: none; } }
+/* mini telas dos serviços no fundo, ligadas pelas linhas de fluxo */
+.ws-bg__card { position: absolute; left: 0; top: 0; opacity: .5; will-change: transform; filter: saturate(.9); }
+.ws-bg__card .ws-card { width: 200px; }
+.ws-reels { position: relative; height: 70px; margin: 4px 0 6px; border-radius: 10px; background: linear-gradient(160deg, #1d4fae, #0e2459 70%); border: 1px solid rgb(92 225 230 / .25); }
+.ws-reels i { position: absolute; left: 50%; top: 50%; translate: -40% -50%; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent rgb(244 247 255 / .9); }
+.ws-dots { display: flex; gap: 5px; margin-top: 8px; } .ws-dots i { width: 18px; height: 4px; border-radius: 2px; background: rgb(185 198 228 / .35); } .ws-dots i.on { background: #5ce1e6; }
+@media (max-width: 639px) { .ws-bg__card { display: none; } }
