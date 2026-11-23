@@ -13,7 +13,11 @@
   background: radial-gradient(circle, rgb(59 139 255 / .16) 0%, rgb(92 225 230 / .05) 38%, transparent 68%); }
 .ws-glow-host:hover > .ws-glow { opacity: 1; }
 .card.ws-glow-host > .ws-glow { --ws-glow-size: 420px; background: radial-gradient(circle, rgb(59 139 255 / .24) 0%, transparent 66%); }
-section.ws-glow-host, footer.ws-glow-host { overflow: clip; }
+/* a luz da página: uma só, por cima de tudo, sem corte entre seções */
+.ws-glow-page { position: fixed; left: 0; top: 0; z-index: 40; width: 720px; aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+  mix-blend-mode: screen; opacity: 0; transition: opacity .5s ease; will-change: transform;
+  background: radial-gradient(circle, rgb(59 139 255 / .13) 0%, rgb(92 225 230 / .045) 38%, transparent 68%); }
+.ws-glow-page.is-on { opacity: 1; }
 
 /* cartões: sobem 6px com sombra azul ao passar o mouse */
 article.card { transition: translate .45s cubic-bezier(.2,.8,.2,1), border-color .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s cubic-bezier(.2,.8,.2,1); }

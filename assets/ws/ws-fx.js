@@ -11,7 +11,23 @@ const onPause = fn => state.listeners.add(fn);
 /* ---------- luz que segue o mouse ---------- */
 function glow() {
   if (!fine) return;
-  const hosts = document.querySelectorAll('main > section, footer.closing, article.card');
+  // uma luz só para a página inteira: segue o mouse sem ser cortada na troca de seção
+  const page = document.createElement('div');
+  page.className = 'ws-glow-page'; page.setAttribute('aria-hidden', 'true');
+  document.body.append(page);
+  let tx = innerWidth / 2, ty = innerHeight / 2, x = tx, y = ty, raf = 0;
+  const step = () => {
+    x += (tx - x) * (reduced ? 1 : 0.18); y += (ty - y) * (reduced ? 1 : 0.18);
+    page.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+    raf = (Math.abs(tx - x) + Math.abs(ty - y) > 0.5) ? requestAnimationFrame(step) : 0;
+  };
+  addEventListener('pointermove', e => {
+    tx = e.clientX; ty = e.clientY; page.classList.add('is-on');
+    if (!raf) raf = requestAnimationFrame(step);
+  }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', () => page.classList.remove('is-on'));
+  // os cartões continuam com o brilho interno deles
+  const hosts = document.querySelectorAll('article.card');
   hosts.forEach(el => {
     el.classList.add('ws-glow-host');
     const g = document.createElement('span');
