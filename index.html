@@ -42,7 +42,7 @@
 </style>
 <link rel="stylesheet" href="assets/diagrams/diagram.css">
 <link rel="stylesheet" href="assets/moments/giant-type-pass/moment.css">
-<link rel="stylesheet" href="assets/ws/ws-fx.css">
+<link rel="stylesheet" href="assets/ws/ws-fx.css?v=20261125">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -171,7 +171,7 @@
   main > section#segmentos > .wrap { height: auto; }
   @media (max-width: 639px) { .seg__tabs { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(-1 * var(--s-4, 16px)); padding: 2px var(--s-4, 16px) 8px; scrollbar-width: none; } .seg__tab { flex: none; } }
   /* a faixa de serviços rola mesmo com "reduzir movimento" ligado, mais devagar e com pausa */
-  @media (prefers-reduced-motion: reduce) { .ws-marquee .ws-marquee__track { animation-duration: 60s !important; animation-iteration-count: infinite !important; } }
+  @media (prefers-reduced-motion: reduce) { .ws-marquee .ws-marquee__track { animation: ws-marq 60s linear infinite !important; } .ws-marquee .ws-marquee__track > [aria-hidden] { display: inline-flex !important; } .ws-marquee .ws-pause { display: grid !important; } }
 </style>
 </head>
 <body>
@@ -470,7 +470,7 @@
 
   <section class="section" id="frase" data-moment="giant-type-pass" data-moment-opts='{"image": "../../img/photo-f192534273.jpg", "travel": 60, "focus": 55}' aria-labelledby="frase-h">
     <div class="wrap">
-      <h2 class="mo-gt__type" id="frase-h">Nenhum cliente<br>sem resposta</h2>
+      <h2 class="mo-gt__type" id="frase-h">Atendimento<br>que não para</h2>
       <div class="mo-gt__row">
         <p>Quem manda mensagem fora do horário recebe resposta na hora. De manhã, você abre o WhatsApp e vê o que já foi resolvido.</p>
         <a class="link" href="#como-funciona">Ver as etapas</a>
