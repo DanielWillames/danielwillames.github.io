@@ -170,8 +170,25 @@
   main > section#segmentos { height: auto; min-height: 100vh; min-height: 100svh; }
   main > section#segmentos > .wrap { height: auto; }
   @media (max-width: 639px) { .seg__tabs { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(-1 * var(--s-4, 16px)); padding: 2px var(--s-4, 16px) 8px; scrollbar-width: none; } .seg__tab { flex: none; } }
-  /* a faixa de serviços rola mesmo com "reduzir movimento" ligado, mais devagar e com pausa */
-  @media (prefers-reduced-motion: reduce) { .ws-marquee .ws-marquee__track { animation: ws-marq 60s linear infinite !important; } .ws-marquee .ws-marquee__track > [aria-hidden] { display: inline-flex !important; } .ws-marquee .ws-pause { display: grid !important; } }
+  /* clientes: faixa de logos em movimento, no fim da página (padrão "logo wall": uma cor só, sem cartões) */
+  .cli-band { position: relative; z-index: 1; padding: var(--s-9) 0 var(--s-9); }
+  .cli-band__head { display: grid; justify-items: center; gap: var(--s-3); text-align: center; margin-bottom: var(--s-7); }
+  .cli-band__eyebrow { font: 500 12px/1 'Martian Mono', monospace; letter-spacing: .14em; text-transform: uppercase; color: #5ce1e6; margin: 0; }
+  .cli-band h2 { font-size: var(--t-h3); font-weight: 400; color: var(--p-muted); max-width: 32ch; margin: 0; }
+  .cli { position: relative; overflow: hidden; border-block: 1px solid rgb(92 225 230 / .16); padding-block: var(--s-6); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+  .cli__track { display: flex; width: max-content; animation: cli-run 30s linear infinite; }
+  .cli:hover .cli__track, .is-ws-paused .cli__track { animation-play-state: paused; }
+  .cli__set { display: flex; align-items: center; }
+  .cli__logo { flex: none; display: grid; place-items: center; width: 280px; height: 80px; padding-inline: var(--s-7); }
+  .cli__logo img { max-width: 100%; max-height: 56px; width: auto; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: .62; transition: opacity .3s; }
+  .cli__logo--sesc img { max-height: 72px; }
+  .cli__logo--hbr img { width: 100%; max-height: none; }
+  .cli__logo:hover img { opacity: 1; }
+  @keyframes cli-run { to { transform: translateX(-50%); } }
+  @media (max-width: 639px) { .cli-band { padding-block: var(--s-8); } .cli__logo { width: 200px; height: 64px; padding-inline: var(--s-5); } .cli__logo img { max-height: 44px; } .cli__logo--sesc img { max-height: 56px; } }
+  /* as duas faixas (serviços e clientes) rolam mesmo com "reduzir movimento" ligado, mais devagar e com pausa */
+  @media (prefers-reduced-motion: reduce) { .ws-marquee .ws-marquee__track { animation: ws-marq 60s linear infinite !important; } .ws-marquee .ws-marquee__track > [aria-hidden] { display: inline-flex !important; } .ws-marquee .ws-pause { display: grid !important; } .cli .cli__track { animation-duration: 45s !important; animation-iteration-count: infinite !important; } }
+  @media (max-width: 639px) { .cli__logo { width: 200px; height: 96px; padding: 14px 20px; } .cli__logo img { max-height: 56px; } .cli__logo--sesc img { max-height: 68px; } }
 </style>
 </head>
 <body>
@@ -547,6 +564,20 @@
       <figure class="faq__photo span-6 start-7"><img src="assets/img/photo-f196835411-960.jpg" srcset="assets/img/photo-f196835411-500.jpg 500w, assets/img/photo-f196835411-960.jpg 960w, assets/img/photo-f196835411.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="Mulher com fones de ouvido digitando no celular" loading="lazy" decoding="async" data-source="stand-in" data-subject="cliente digitando no celular"></figure>
     </div>
   </section>
+  <div class="cli-band" id="clientes" role="region" aria-labelledby="clientes-h">
+    <div class="wrap">
+      <div class="cli-band__head">
+        <p class="cli-band__eyebrow">Clientes</p>
+        <h2 id="clientes-h">Instituições do RN que já trabalham com a Willames Store</h2>
+      </div>
+    </div>
+    <div class="cli">
+      <div class="cli__track">
+        <div class="cli__set"><div class="cli__logo"><img src="assets/img/clientes/senac-rn.png" width="1419" height="446" alt="Senac RN" loading="lazy"></div><div class="cli__logo cli__logo--sesc"><img src="assets/img/clientes/sesc-rn.svg" width="186" height="181" alt="Sesc RN" loading="lazy"></div><div class="cli__logo cli__logo--hbr"><img src="assets/img/clientes/hotel-barreira-roxa.png" width="150" height="48" alt="Hotel Senac Barreira Roxa" loading="lazy"></div><div class="cli__logo"><img src="assets/img/clientes/senac-rn.png" width="1419" height="446" alt="" loading="lazy"></div><div class="cli__logo cli__logo--sesc"><img src="assets/img/clientes/sesc-rn.svg" width="186" height="181" alt="" loading="lazy"></div><div class="cli__logo cli__logo--hbr"><img src="assets/img/clientes/hotel-barreira-roxa.png" width="150" height="48" alt="" loading="lazy"></div></div>
+        <div class="cli__set" aria-hidden="true"><div class="cli__logo"><img src="assets/img/clientes/senac-rn.png" width="1419" height="446" alt="" loading="lazy"></div><div class="cli__logo cli__logo--sesc"><img src="assets/img/clientes/sesc-rn.svg" width="186" height="181" alt="" loading="lazy"></div><div class="cli__logo cli__logo--hbr"><img src="assets/img/clientes/hotel-barreira-roxa.png" width="150" height="48" alt="" loading="lazy"></div><div class="cli__logo"><img src="assets/img/clientes/senac-rn.png" width="1419" height="446" alt="" loading="lazy"></div><div class="cli__logo cli__logo--sesc"><img src="assets/img/clientes/sesc-rn.svg" width="186" height="181" alt="" loading="lazy"></div><div class="cli__logo cli__logo--hbr"><img src="assets/img/clientes/hotel-barreira-roxa.png" width="150" height="48" alt="" loading="lazy"></div></div>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer class="footer closing" id="contact" aria-labelledby="close-h">
