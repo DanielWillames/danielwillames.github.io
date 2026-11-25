@@ -106,9 +106,10 @@ article.card:hover { translate: 0 -6px; border-color: rgb(59 139 255 / .38); box
 
 @media (max-width: 1023px) { .ws-glass { --ry: 0deg; --rx: 0deg; } .ws-front { display: none; } }
 @media (prefers-reduced-motion: reduce) {
-  .ws-rotate .ws-ch, .ws-marquee__track, .ws-rings i { animation: none !important; }
+  .ws-rotate .ws-ch, .ws-rings i { animation: none !important; }
   .ws-glass { transition: none; } .ws-pause { display: none; }
-  .ws-marquee__track > [aria-hidden] { display: none; }
+  /* a faixa de serviços segue rolando (mais devagar), com o botão de pausa à mão */
+  .ws-marquee .ws-pause { display: grid; }
 }
 
 /* ---------- imagens dos serviços flutuando no fundo ---------- */

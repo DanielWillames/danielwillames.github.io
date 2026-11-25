@@ -170,6 +170,8 @@
   main > section#segmentos { height: auto; min-height: 100vh; min-height: 100svh; }
   main > section#segmentos > .wrap { height: auto; }
   @media (max-width: 639px) { .seg__tabs { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(-1 * var(--s-4, 16px)); padding: 2px var(--s-4, 16px) 8px; scrollbar-width: none; } .seg__tab { flex: none; } }
+  /* a faixa de serviços rola mesmo com "reduzir movimento" ligado, mais devagar e com pausa */
+  @media (prefers-reduced-motion: reduce) { .ws-marquee .ws-marquee__track { animation-duration: 60s !important; animation-iteration-count: infinite !important; } }
 </style>
 </head>
 <body>
