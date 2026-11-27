@@ -166,6 +166,14 @@
   .seg__nota { margin: var(--s-3, 12px) 0 0; font-size: 13px; color: var(--muted); }
   @media (max-width: 1023px) { .seg__panel { grid-template-columns: 1fr; } }
   @media (max-width: 639px) { .seg__side { grid-template-columns: 1fr; } }
+  /* diagnóstico em destaque no topo: botão com contorno ciano e um ponto que pulsa */
+  .nav__actions .btn--diag, .btn--diag { display: inline-flex; align-items: center; gap: 8px; color: #f4f7ff; background: rgb(92 225 230 / .1); border: 1px solid #5ce1e6; box-shadow: 0 0 0 0 rgb(92 225 230 / .35); }
+  .btn--diag:hover { background: rgb(92 225 230 / .2); }
+  .btn--diag__dot { width: 8px; height: 8px; border-radius: 50%; background: #5ce1e6; box-shadow: 0 0 0 0 rgb(92 225 230 / .6); animation: diag-pulse 2s ease-out infinite; }
+  @keyframes diag-pulse { 0% { box-shadow: 0 0 0 0 rgb(92 225 230 / .6); } 70%, 100% { box-shadow: 0 0 0 8px rgb(92 225 230 / 0); } }
+  @media (prefers-reduced-motion: reduce) { .btn--diag__dot { animation: diag-pulse 2s ease-out infinite !important; } }
+  @media (max-width: 1023px) { .nav:not(.is-open) .nav__actions { gap: 8px; } .nav:not(.is-open) .nav__actions .nav__wa { display: none; } .nav__toggle { margin-left: 8px; } }
+  @media (max-width: 639px) { .nav__logo { font-size: 0; gap: 0; } }
   /* 4 frentes: número da frente e chamada para o diagnóstico */
   .frente__num { margin: 0 0 4px; font: 500 12px/1 var(--font-mono); letter-spacing: .14em; color: #5ce1e6; }
   .frentes__cta { margin-top: var(--s-6, 32px); display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between; padding: 20px 24px; border: 1px dashed #3b8bff; border-radius: 16px; }
@@ -238,11 +246,11 @@
       <div class="nav__item"><a class="nav__link" href="#segmentos">Segmentos</a></div>
       <div class="nav__item"><a class="nav__link" href="#agente">Agente</a></div>
       <div class="nav__item"><a class="nav__link" href="#trabalhos">Trabalhos</a></div>
-      <div class="nav__item"><a class="nav__link" href="diagnostico.html">Diagnóstico</a></div>
       <div class="nav__item"><a class="nav__link" href="#como-funciona">Etapas</a></div>
     </nav>
     <div class="nav__actions">
-      <a class="btn btn--primary" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
+      <a class="btn btn--primary btn--diag" href="diagnostico.html"><i class="btn--diag__dot" aria-hidden="true"></i>Diagnóstico grátis</a>
+      <a class="btn btn--primary nav__wa" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
     </div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
