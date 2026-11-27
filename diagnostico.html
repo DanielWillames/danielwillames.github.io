@@ -207,7 +207,7 @@ button:disabled { opacity: .6; cursor: wait; }
     try {
       // no máximo 10 segundos de espera: se o serviço de envio estiver lento, a página não trava
       const ctl = new AbortController(); const tempo = setTimeout(() => ctl.abort(), 10000);
-      const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d), signal: ctl.signal });
+      const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { Accept: 'application/json' }, body: Object.entries(d).reduce((fd, [k, v]) => (fd.append(k, v), fd), new FormData()), signal: ctl.signal });
       clearTimeout(tempo);
       const j = await r.json().catch(() => ({}));
       if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || 'falha');
