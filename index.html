@@ -166,6 +166,15 @@
   .seg__nota { margin: var(--s-3, 12px) 0 0; font-size: 13px; color: var(--muted); }
   @media (max-width: 1023px) { .seg__panel { grid-template-columns: 1fr; } }
   @media (max-width: 639px) { .seg__side { grid-template-columns: 1fr; } }
+  /* botões: no lugar da seta, o ícone do que o botão faz (WhatsApp ou diagnóstico), à esquerda do texto */
+  html[data-buttons="arrow"] :is(.btn--primary, .btn--secondary)::after { content: none !important; display: none !important; }
+  .btn { gap: 10px; }
+  a.btn[href*="wa.me"]::before, a.btn[href^="diagnostico.html"]::before { content: ""; flex: none; width: 18px; height: 18px; }
+  a.btn[href*="wa.me"]::before { background: url("assets/icons/whatsapp.svg") center / contain no-repeat; }
+  a.btn[href^="diagnostico.html"]::before { background: currentColor; -webkit-mask: var(--ic-diag) center / contain no-repeat; mask: var(--ic-diag) center / contain no-repeat; }
+  .btn--xl[href*="wa.me"]::before { width: 22px; height: 22px; }
+  :root { --ic-diag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8' y='2' width='8' height='4' rx='1'/%3E%3Cpath d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/%3E%3Cpath d='m9 14 2 2 4-4'/%3E%3C/svg%3E"); }
+  .btn--diag::before { color: #5ce1e6; }
   /* diagnóstico em destaque no topo: botão com contorno ciano e um ponto que pulsa */
   .nav__actions .btn--diag, .btn--diag { display: inline-flex; align-items: center; gap: 8px; color: #f4f7ff; background: rgb(92 225 230 / .1); border: 1px solid #5ce1e6; box-shadow: 0 0 0 0 rgb(92 225 230 / .35); }
   .btn--diag:hover { background: rgb(92 225 230 / .2); }
@@ -249,7 +258,7 @@
       <div class="nav__item"><a class="nav__link" href="#como-funciona">Etapas</a></div>
     </nav>
     <div class="nav__actions">
-      <a class="btn btn--primary btn--diag" href="diagnostico.html"><i class="btn--diag__dot" aria-hidden="true"></i>Diagnóstico grátis</a>
+      <a class="btn btn--primary btn--diag" href="diagnostico.html">Diagnóstico grátis</a>
       <a class="btn btn--primary nav__wa" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
     </div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
@@ -279,7 +288,7 @@
         <h1 id="hero-h" aria-label="Tecnologia que atende, vende e organiza a sua empresa">Tecnologia que <span class="ws-rotate" data-words="atende,vende,organiza,agenda"><span>atende</span></span> a sua empresa</h1>
         <p class="hero__lead">Atendimento com IA no WhatsApp, sistemas que ligam o que a sua empresa já usa, sites, anúncios e conteúdo. Para empresas de qualquer setor e órgãos públicos.</p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="diagnostico.html">Fazer o diagnóstico gratuito<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--primary" href="diagnostico.html">Fazer o diagnóstico gratuito</a>
           <a class="btn btn--secondary" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
         </div>
         <p class="hero__proof">De Natal-RN para todo o Brasil. Primeiro o problema, depois a proposta com valor fechado.</p>
@@ -352,7 +361,7 @@
       </div>
       <div class="frentes__cta">
         <p><strong>Não sabe por onde começar?</strong> Conte onde a sua empresa se perde hoje. A gente indica a frente certa e só depois fala de preço.</p>
-        <a class="btn btn--primary" href="diagnostico.html">Fazer o diagnóstico gratuito<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+        <a class="btn btn--primary" href="diagnostico.html">Fazer o diagnóstico gratuito</a>
       </div>
     </div>
   </section>
@@ -622,7 +631,7 @@
         <h2 id="close-h">Fale com a Willames Store pelo WhatsApp</h2>
         <p>(84) 98867-4691. Quem responde é o Daniel, dono da agência. Prefere escrever com calma? <a href="diagnostico.html">Faça o diagnóstico</a>.</p>
       </div>
-      <a class="btn btn--primary btn--xl btn--wide" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      <a class="btn btn--primary btn--xl btn--wide" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
     </div>
     <div class="closing__links">
       <div class="grid">
