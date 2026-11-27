@@ -94,7 +94,7 @@ button:disabled { opacity: .6; cursor: wait; }
     <ol class="steps">
       <li><span class="n">1</span><div><b>Você responde em uns 5 minutos</b>Sobre a empresa, a rotina e o que mais atrapalha.</div></li>
       <li><span class="n">2</span><div><b>O Daniel analisa</b>E indica a solução certa: atendimento com IA, sistemas e integração, site e tráfego ou conteúdo.</div></li>
-      <li><span class="n">3</span><div><b>Você recebe a recomendação</b>No seu WhatsApp e no e-mail informado no diagnóstico, com a proposta e o valor fechado. Sem compromisso.</div></li>
+      <li><span class="n">3</span><div><b>Você recebe a recomendação</b>No e-mail informado no diagnóstico, com a proposta e o valor fechado. Sem compromisso.</div></li>
     </ol>
     <p class="note">Para empresas de qualquer setor e porte, e para órgãos públicos e instituições. De Natal-RN para todo o Brasil.</p>
   </section>
@@ -163,7 +163,7 @@ button:disabled { opacity: .6; cursor: wait; }
           <div><label for="prazo">Para quando?</label>
             <select id="prazo" name="Prazo"><option value="">Escolha</option><option>O quanto antes</option><option>Nos próximos 30 dias</option><option>Nos próximos 3 meses</option><option>Só pesquisando</option></select></div>
         </div>
-        <div><label for="email">E-mail <span class="hint">Para receber a recomendação também por e-mail.</span></label><input id="email" name="E-mail" type="email" autocomplete="email"></div>
+        <div><label for="email">E-mail <span class="hint">É por aqui que você recebe a recomendação.</span></label><input id="email" name="E-mail" type="email" autocomplete="email" required></div>
         <label class="check"><input type="checkbox" id="lgpd" required><span>Concordo que a Willames Store use estas informações para analisar a minha empresa e falar comigo, conforme a <a href="politica-de-privacidade.html" target="_blank" rel="noopener">política de privacidade</a>.</span></label>
       </fieldset>
 
@@ -189,7 +189,7 @@ button:disabled { opacity: .6; cursor: wait; }
   const confere = () => {
     err.textContent = '';
     const falta = [...f.querySelectorAll('[required]')].find(el => el.type === 'checkbox' ? !el.checked : !el.value.trim());
-    if (falta) { err.textContent = falta.id === 'lgpd' ? 'Marque a concordância para enviar.' : 'Preencha os campos obrigatórios: nome, WhatsApp, empresa, setor e onde a empresa se perde.'; falta.focus(); return null; }
+    if (falta) { err.textContent = falta.id === 'lgpd' ? 'Marque a concordância para enviar.' : 'Preencha os campos obrigatórios: nome, WhatsApp, empresa, setor, onde a empresa se perde e e-mail.'; falta.focus(); return null; }
     if (f.botcheck.value) return null;
     const d = {};
     new FormData(f).forEach((v, k) => { if (k === 'botcheck') return; d[k] = d[k] ? d[k] + ', ' + v : v; });
