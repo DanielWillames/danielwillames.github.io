@@ -167,7 +167,7 @@ button:disabled { opacity: .6; cursor: wait; }
         <label class="check"><input type="checkbox" id="lgpd" required><span>Concordo que a Willames Store use estas informações para analisar a minha empresa e falar comigo, conforme a <a href="politica-de-privacidade.html" target="_blank" rel="noopener">política de privacidade</a>.</span></label>
       </fieldset>
 
-      <div class="hp" aria-hidden="true"><label for="hp">Não preencha</label><input id="hp" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+      <div class="hp" aria-hidden="true"><label for="hp">Não preencha</label><input id="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off"></div>
       <p class="err" id="err" role="alert"></p>
       <button type="submit" id="btn">Enviar o diagnóstico</button>
     </form>
@@ -184,28 +184,30 @@ button:disabled { opacity: .6; cursor: wait; }
 <p class="foot">&copy; 2026 Willames Store · D W DA S ASEVEDO COMERCIO E SERVICOS · CNPJ 43.743.105/0001-43 · Parnamirim-RN · <a href="politica-de-privacidade.html">Política de Privacidade</a></p>
 
 <script>
-  // envia para o e-mail da Willames Store (FormSubmit) e mostra a confirmação na própria página
+  // envia para o e-mail da Willames Store (Web3Forms) e mostra a confirmação na própria página
   const f = document.getElementById('f'), err = document.getElementById('err'), btn = document.getElementById('btn');
   const confere = () => {
     err.textContent = '';
     const falta = [...f.querySelectorAll('[required]')].find(el => el.type === 'checkbox' ? !el.checked : !el.value.trim());
     if (falta) { err.textContent = falta.id === 'lgpd' ? 'Marque a concordância para enviar.' : 'Preencha os campos obrigatórios: nome, WhatsApp, empresa, setor e onde a empresa se perde.'; falta.focus(); return null; }
-    if (f._honey.value) return null;
+    if (f.botcheck.value) return null;
     const d = {};
-    new FormData(f).forEach((v, k) => { if (k === '_honey') return; d[k] = d[k] ? d[k] + ', ' + v : v; });
+    new FormData(f).forEach((v, k) => { if (k === 'botcheck') return; d[k] = d[k] ? d[k] + ', ' + v : v; });
     return d;
   };
   f.addEventListener('submit', async e => {
     e.preventDefault();
     const d = confere(); if (!d) return;
-    d._subject = 'Diagnóstico pelo site: ' + (d['Empresa'] || d['Nome']);
-    d._template = 'table';
-    d._captcha = 'false';
+    // Web3Forms: entrega no willamesstore@gmail.com (chave pública do formulário, não é senha)
+    d.access_key = '17b2cdde-d782-47cd-9a50-6bfd3e91718c';
+    d.subject = 'Diagnóstico pelo site: ' + (d['Empresa'] || d['Nome']);
+    d.from_name = 'Site Willames Store';
+    if (d['E-mail']) d.replyto = d['E-mail'];
     btn.disabled = true; btn.textContent = 'Enviando...';
     try {
       // no máximo 10 segundos de espera: se o serviço de envio estiver lento, a página não trava
       const ctl = new AbortController(); const tempo = setTimeout(() => ctl.abort(), 10000);
-      const r = await fetch('https://formsubmit.co/ajax/willamesstore@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d), signal: ctl.signal });
+      const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d), signal: ctl.signal });
       clearTimeout(tempo);
       const j = await r.json().catch(() => ({}));
       if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || 'falha');
