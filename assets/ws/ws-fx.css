@@ -73,8 +73,8 @@ article.card:hover { translate: 0 -6px; border-color: rgb(59 139 255 / .38); box
 .ws-rail svg { width: 18px; height: 18px; stroke: #cfe6ff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- título animado (kinetic typography) ---------- */
-.ws-rotate { display: inline-grid; vertical-align: bottom; white-space: nowrap; }
-.ws-rotate > span { grid-area: 1 / 1; background: linear-gradient(100deg, #8fc4ff 0%, #5ce1e6 45%, #3b8bff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .08em; }
+.ws-rotate { display: inline-grid; vertical-align: baseline; white-space: nowrap; }
+.ws-rotate > span { grid-area: 1 / 1; background: linear-gradient(100deg, #8fc4ff 0%, #5ce1e6 45%, #3b8bff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .08em; margin-bottom: -.08em; }
 .ws-rotate .ws-ch { display: inline-block; background: inherit; -webkit-background-clip: text; background-clip: text; color: transparent;
   transform-origin: 50% 100%; animation: ws-in .6s cubic-bezier(.2,.9,.25,1) both; animation-delay: calc(var(--i) * 32ms); }
 .ws-rotate .is-out .ws-ch { animation: ws-out .38s cubic-bezier(.6,0,.8,.4) both; animation-delay: calc(var(--i) * 18ms); }
