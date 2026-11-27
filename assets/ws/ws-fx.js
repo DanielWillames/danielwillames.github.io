@@ -114,7 +114,7 @@ function hero() {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const n = Math.min(90, Math.round(W * H / (wide() ? 15000 : 22000)));
     dots = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .28, vy: (Math.random() - .5) * .28, r: Math.random() * 1.4 + .6 }));
-    if (wide()) { place(orb, .455, .14); place(rings, .43, .9); } else { place(orb, -1, -1); place(rings, -1, -1); }
+    if (wide()) { if (orb) place(orb, .455, .14); place(rings, .43, .9); } else { if (orb) place(orb, -1, -1); place(rings, -1, -1); }
   }
   const place = (el, x, y) => { el.style.left = `calc(${x * 100}% - ${el.offsetWidth / 2}px)`; el.style.top = `calc(${y * 100}% - ${el.offsetHeight / 2}px)`; el.dataset.x = x; el.dataset.y = y; };
 
@@ -122,7 +122,7 @@ function hero() {
   function draw(dt) {
     t += dt;
     mouse.x += (mouse.tx - mouse.x) * .06; mouse.y += (mouse.ty - mouse.y) * .06;
-    const mx = (mouse.x - .5) * 60, my = (mouse.y - .5) * 40;
+    const mx = (mouse.x - .5) * 16, my = (mouse.y - .5) * 10;
     for (const b of [...B, ...F]) {
       const fx = Math.sin(t * .35 * b.sp + b.s) * 18, fy = Math.cos(t * .3 * b.sp + b.s * 1.3) * 22;
       const [bx, by, br] = wide() || !b.m ? [b.x, b.y, b.r] : b.m;
@@ -136,16 +136,16 @@ function hero() {
       f.el.style.left = `${x * 100}%`; f.el.style.top = `${y * 100}%`;
       f.el.style.transform = `translate(-50%, -50%) translate(${(mx * f.d + fx).toFixed(1)}px, ${(my * f.d + fy).toFixed(1)}px) rotate(${(f.r + Math.sin(t * .3 + f.s) * 2).toFixed(2)}deg)`;
     }
-    orb.style.transform = `translate(${mx * 1.2 + Math.sin(t * .5) * 8}px, ${my * 1.2 + Math.cos(t * .45) * 12}px)`;
+    if (orb) orb.style.transform = `translate(${mx * 1.2 + Math.sin(t * .5) * 8}px, ${my * 1.2 + Math.cos(t * .45) * 12}px)`;
     rings.style.transform = `translate(${mx * .7}px, ${my * .7}px)`;
     // partículas
     ctx.clearRect(0, 0, W, H);
-    const L = 120, ML = 170;
+    const L = 120, ML = 90;
     for (const p of dots) {
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0 || p.x > W) p.vx *= -1;
       if (p.y < 0 || p.y > H) p.vy *= -1;
-      if (mouse.in) { const dx = p.x - mouse.px, dy = p.y - mouse.py, d2 = dx * dx + dy * dy; if (d2 < 3600) { const k = (3600 - d2) / 3600 * .6; p.x += dx / 60 * k; p.y += dy / 60 * k; } }
+      if (mouse.in) { const dx = p.x - mouse.px, dy = p.y - mouse.py, d2 = dx * dx + dy * dy; if (d2 < 1600) { const k = (1600 - d2) / 1600 * .15; p.x += dx / 40 * k; p.y += dy / 40 * k; } }
     }
     ctx.lineWidth = 1;
     for (let i = 0; i < dots.length; i++) {
@@ -154,7 +154,7 @@ function hero() {
         const b = dots[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
         if (d < L) { ctx.strokeStyle = `rgba(92,225,230,${(1 - d / L) * .22})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
       }
-      if (mouse.in) { const d = Math.hypot(a.x - mouse.px, a.y - mouse.py); if (d < ML) { ctx.strokeStyle = `rgba(143,196,255,${(1 - d / ML) * .55})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.px, mouse.py); ctx.stroke(); } }
+      if (mouse.in) { const d = Math.hypot(a.x - mouse.px, a.y - mouse.py); if (d < ML) { ctx.strokeStyle = `rgba(143,196,255,${(1 - d / ML) * .18})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.px, mouse.py); ctx.stroke(); } }
       ctx.fillStyle = `rgba(214,240,255,${.35 + a.r * .25})`; ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
     }
   }
@@ -168,8 +168,8 @@ function hero() {
       mouse.px = e.clientX - r.left; mouse.py = e.clientY - r.top; mouse.in = true;
       if (glass && wide()) {
         const g = glass.getBoundingClientRect();
-        glass.style.setProperty('--ry', `${-7 + (mouse.tx - .5) * 10}deg`);
-        glass.style.setProperty('--rx', `${3 - (mouse.ty - .5) * 8}deg`);
+        glass.style.setProperty('--ry', `${-7 + (mouse.tx - .5) * 3}deg`);
+        glass.style.setProperty('--rx', `${3 - (mouse.ty - .5) * 2}deg`);
         glass.style.setProperty('--gx', `${e.clientX - g.left}px`); glass.style.setProperty('--gy', `${e.clientY - g.top}px`);
       }
     }, { passive: true });
@@ -249,7 +249,7 @@ function siteBg() {
   function draw(dt) {
     t += dt;
     mouse.x += (mouse.tx - mouse.x) * .06; mouse.y += (mouse.ty - mouse.y) * .06;
-    const mx = (mouse.x - .5) * 50, my = (mouse.y - .5) * 34, sy = scrollY, R = Math.max(Math.min(W, H), 520);
+    const mx = (mouse.x - .5) * 14, my = (mouse.y - .5) * 9, sy = scrollY, R = Math.max(Math.min(W, H), 520);
     const cards = showCards();
     for (const f of tiles) {
       if (!cards) { f.el.style.display = 'none'; continue; }
@@ -266,16 +266,16 @@ function siteBg() {
       p.x += p.vx; p.y += p.vy - dy;
       if (p.x < 0 || p.x > W) p.vx *= -1;
       if (p.y < -10) p.y += H + 20; else if (p.y > H + 10) p.y -= H + 20;
-      if (mouse.in) { const ex = p.x - mouse.px, ey = p.y - mouse.py, d2 = ex * ex + ey * ey; if (d2 < 3600) { const k = (3600 - d2) / 3600 * .6; p.x += ex / 60 * k; p.y += ey / 60 * k; } }
+      if (mouse.in) { const ex = p.x - mouse.px, ey = p.y - mouse.py, d2 = ex * ex + ey * ey; if (d2 < 1600) { const k = (1600 - d2) / 1600 * .15; p.x += ex / 40 * k; p.y += ey / 40 * k; } }
     }
-    const L = 120, ML = 170;
+    const L = 120, ML = 90;
     for (let i = 0; i < dots.length; i++) {
       const a = dots[i];
       for (let j = i + 1; j < dots.length; j++) {
         const b = dots[j], d = Math.hypot(a.x - b.x, a.y - b.y);
         if (d < L) { ctx.strokeStyle = `rgba(92,225,230,${(1 - d / L) * .16})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
       }
-      if (mouse.in) { const d = Math.hypot(a.x - mouse.px, a.y - mouse.py); if (d < ML) { ctx.strokeStyle = `rgba(143,196,255,${(1 - d / ML) * .4})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.px, mouse.py); ctx.stroke(); } }
+      if (mouse.in) { const d = Math.hypot(a.x - mouse.px, a.y - mouse.py); if (d < ML) { ctx.strokeStyle = `rgba(143,196,255,${(1 - d / ML) * .15})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.px, mouse.py); ctx.stroke(); } }
       ctx.fillStyle = `rgba(214,240,255,${.25 + a.r * .2})`; ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
     }
     if (cards) flow();
