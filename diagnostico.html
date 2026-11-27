@@ -68,6 +68,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px
 button { font: 600 17px var(--text); color: #0a1a3f; background: var(--accent); border: 0; border-radius: 12px; padding: 15px 22px; cursor: pointer; width: 100%; }
 button:hover { filter: brightness(1.08); }
 button:disabled { opacity: .6; cursor: wait; }
+.btn-wa { display: flex; align-items: center; justify-content: center; gap: 10px; background: transparent; color: var(--ink); border: 1px solid #25d366; margin-top: -10px; }
+.btn-wa:hover { background: rgb(37 211 102 / .12); filter: none; }
+.wa-hint { margin: -14px 0 0; font-size: 13px; color: var(--muted); text-align: center; }
 .err { color: var(--error); font-size: 14px; margin: 0; min-height: 1em; }
 .done { display: none; text-align: left; }
 .done h2 { font: 500 28px/1.15 var(--display); margin: 0 0 8px; letter-spacing: -0.02em; }
@@ -167,6 +170,8 @@ button:disabled { opacity: .6; cursor: wait; }
       <div class="hp" aria-hidden="true"><label for="hp">Não preencha</label><input id="hp" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
       <p class="err" id="err" role="alert"></p>
       <button type="submit" id="btn">Enviar o diagnóstico</button>
+      <button type="button" class="btn-wa" id="btnwa"><img src="assets/icons/whatsapp.svg" alt="" width="20" height="20">Prefiro enviar pelo WhatsApp</button>
+      <p class="wa-hint">Abre o seu WhatsApp com as respostas já escritas para o Daniel. É só tocar em enviar.</p>
     </form>
 
     <div class="done" id="done" tabindex="-1">
@@ -183,13 +188,24 @@ button:disabled { opacity: .6; cursor: wait; }
 <script>
   // envia para o e-mail da Willames Store (FormSubmit) e mostra a confirmação na própria página
   const f = document.getElementById('f'), err = document.getElementById('err'), btn = document.getElementById('btn');
-  f.addEventListener('submit', async e => {
-    e.preventDefault(); err.textContent = '';
+  const confere = () => {
+    err.textContent = '';
     const falta = [...f.querySelectorAll('[required]')].find(el => el.type === 'checkbox' ? !el.checked : !el.value.trim());
-    if (falta) { err.textContent = falta.id === 'lgpd' ? 'Marque a concordância para enviar.' : 'Preencha os campos obrigatórios: nome, WhatsApp, empresa, setor e onde a empresa se perde.'; falta.focus(); return; }
-    if (f._honey.value) return;
+    if (falta) { err.textContent = falta.id === 'lgpd' ? 'Marque a concordância para enviar.' : 'Preencha os campos obrigatórios: nome, WhatsApp, empresa, setor e onde a empresa se perde.'; falta.focus(); return null; }
+    if (f._honey.value) return null;
     const d = {};
     new FormData(f).forEach((v, k) => { if (k === '_honey') return; d[k] = d[k] ? d[k] + ', ' + v : v; });
+    return d;
+  };
+  // a mesma resposta, montada como mensagem para o WhatsApp do Daniel
+  const textoWhats = d => '*Diagnóstico Willames Store*\n\n' + Object.entries(d).filter(([, v]) => String(v).trim()).map(([k, v]) => `*${k}:* ${v}`).join('\n');
+  document.getElementById('btnwa').addEventListener('click', () => {
+    const d = confere(); if (!d) return;
+    window.open('https://wa.me/5584988674691?text=' + encodeURIComponent(textoWhats(d)), '_blank', 'noopener');
+  });
+  f.addEventListener('submit', async e => {
+    e.preventDefault();
+    const d = confere(); if (!d) return;
     d._subject = 'Diagnóstico pelo site: ' + (d['Empresa'] || d['Nome']);
     d._template = 'table';
     d._captcha = 'false';
@@ -202,7 +218,7 @@ button:disabled { opacity: .6; cursor: wait; }
       document.getElementById('done').focus();
       window.scrollTo({ top: document.getElementById('area').offsetTop - 16, behavior: 'smooth' });
     } catch (x) {
-      err.innerHTML = 'Não foi possível enviar agora. Tente de novo ou mande pelo <a href="https://wa.me/5584988674691">WhatsApp (84) 98867-4691</a>.';
+      err.textContent = 'Não foi possível enviar pelo site agora. Use o botão "Prefiro enviar pelo WhatsApp" logo abaixo: as respostas já vão escritas.';
       btn.disabled = false; btn.textContent = 'Enviar o diagnóstico';
     }
   });

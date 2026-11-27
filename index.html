@@ -180,8 +180,8 @@
   .frentes__cta p { margin: 0; max-width: 60ch; color: var(--p-muted); }
   .frentes__cta strong { color: var(--p-ink); }
   /* o painel muda de tamanho conforme o nicho: a seção cresce quando a tela é baixa, sem invadir a próxima */
-  main > section#segmentos { height: auto; min-height: 100vh; min-height: 100svh; }
-  main > section#segmentos > .wrap { height: auto; }
+  main > section#segmentos, main > section#servicos { height: auto; min-height: 100vh; min-height: 100svh; }
+  main > section#segmentos > .wrap, main > section#servicos > .wrap { height: auto; }
   @media (max-width: 639px) { .seg__tabs { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(-1 * var(--s-4, 16px)); padding: 2px var(--s-4, 16px) 8px; scrollbar-width: none; } .seg__tab { flex: none; } }
   /* clientes: faixa de logos em movimento, no fim da página (padrão "logo wall": uma cor só, sem cartões) */
   .cli-band { position: relative; z-index: 1; padding: var(--s-9) 0 var(--s-9); }
