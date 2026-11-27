@@ -203,7 +203,7 @@ button:disabled { opacity: .6; cursor: wait; }
     d._captcha = 'false';
     btn.disabled = true; btn.textContent = 'Enviando...';
     try {
-      const r = await fetch('https://formsubmit.co/ajax/d773cf35c0b4f879903d2252adedded9', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d) });
+      const r = await fetch('https://formsubmit.co/ajax/willamesstore@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d) });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || 'falha');
       document.getElementById('area').classList.add('sent');
