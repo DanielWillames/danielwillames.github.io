@@ -203,14 +203,17 @@ button:disabled { opacity: .6; cursor: wait; }
     d._captcha = 'false';
     btn.disabled = true; btn.textContent = 'Enviando...';
     try {
-      const r = await fetch('https://formsubmit.co/ajax/willamesstore@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d) });
+      // no máximo 10 segundos de espera: se o serviço de envio estiver lento, a página não trava
+      const ctl = new AbortController(); const tempo = setTimeout(() => ctl.abort(), 10000);
+      const r = await fetch('https://formsubmit.co/ajax/willamesstore@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d), signal: ctl.signal });
+      clearTimeout(tempo);
       const j = await r.json().catch(() => ({}));
       if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || 'falha');
       document.getElementById('area').classList.add('sent');
       document.getElementById('done').focus();
       window.scrollTo({ top: document.getElementById('area').offsetTop - 16, behavior: 'smooth' });
     } catch (x) {
-      err.innerHTML = 'Não foi possível enviar agora. Tente de novo em instantes ou fale com a gente pelo <a href="https://wa.me/5584988674691">WhatsApp (84) 98867-4691</a>.';
+      err.innerHTML = 'O envio está demorando mais que o normal. Suas respostas continuam aqui: tente de novo em alguns minutos ou fale direto com o Daniel pelo <a href="https://wa.me/5584988674691">WhatsApp (84) 98867-4691</a>.';
       btn.disabled = false; btn.textContent = 'Enviar o diagnóstico';
     }
   });
