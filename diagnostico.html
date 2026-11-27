@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diagnóstico gratuito | Willames Store</title>
+<meta name="description" content="Conte onde a sua empresa se perde hoje. A Willames Store analisa e indica a solução certa: atendimento com IA, sistemas e integração, site e tráfego ou conteúdo. Depois, a proposta com valor fechado.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diagnóstico gratuito | Willames Store">
+<meta property="og:description" content="Onde a sua empresa se perde hoje? Responda em 5 minutos e receba a recomendação.">
+<meta property="og:url" content="https://willamesstore.com.br/diagnostico.html">
+<meta property="og:image" content="https://willamesstore.com.br/share.jpg">
+<link rel="canonical" href="https://willamesstore.com.br/diagnostico.html">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0a1a3f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400..700&family=Figtree:wght@400..600&family=Martian+Mono:wght@400..500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a1a3f; --surface: #11265a; --line: #2a4380; --ink: #f4f7ff; --muted: #b9c6e4;
+  --accent: #3b8bff; --cyan: #5ce1e6; --error: #ff8a8a; --ok: #6fe3a5;
+  --display: "Sora", system-ui, sans-serif; --text: "Figtree", system-ui, sans-serif; --mono: "Martian Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.6 var(--text);
+  background-image: radial-gradient(900px 500px at 85% -10%, rgb(59 139 255 / .22), transparent 60%), radial-gradient(700px 400px at -10% 30%, rgb(92 225 230 / .08), transparent 60%); background-attachment: fixed; }
+a { color: var(--cyan); }
+.top { max-width: 1100px; margin: 0 auto; padding: 18px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 600 18px var(--display); }
+.top__wa { color: var(--muted); font-size: 15px; text-decoration: none; }
+.top__wa:hover { color: var(--ink); }
+@media (max-width: 559px) { .top__wa span { display: none; } }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 80px; display: grid; gap: 40px; }
+@media (min-width: 960px) { .wrap { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; padding-top: 48px; } .intro { position: sticky; top: 32px; } }
+.eyebrow { margin: 0 0 12px; font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); }
+h1 { margin: 0; font: 500 clamp(32px, 5vw, 52px)/1.06 var(--display); letter-spacing: -0.035em; }
+h1 em { font-style: normal; color: var(--accent); }
+.lead { color: var(--muted); margin: 16px 0 0; max-width: 46ch; }
+.steps { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
+.steps li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; color: var(--muted); font-size: 15px; }
+.steps b { display: block; color: var(--ink); font-weight: 600; }
+.steps span.n { width: 32px; height: 32px; border-radius: 10px; display: grid; place-items: center; background: var(--surface); border: 1px solid var(--line); font: 500 12px var(--mono); color: var(--cyan); }
+.note { margin: 24px 0 0; font-size: 14px; color: var(--muted); border-left: 2px solid var(--accent); padding-left: 12px; }
+form { background: rgb(17 38 90 / .72); border: 1px solid var(--line); border-radius: 20px; padding: 24px 18px; display: grid; gap: 22px; }
+@media (min-width: 640px) { form { padding: 32px; } }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 16px; }
+legend { padding: 0; margin-bottom: 10px; font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); }
+.row { display: grid; gap: 16px; }
+@media (min-width: 640px) { .row--2 { grid-template-columns: 1fr 1fr; } }
+label, .label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+.hint { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 2px; }
+input[type=text], input[type=tel], input[type=email], select, textarea {
+  width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: #0c1e4a; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+textarea { min-height: 130px; resize: vertical; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 20px) 52%, calc(100% - 15px) 52%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 40px; }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.chip span { display: inline-block; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: #0c1e4a; font-size: 15px; color: var(--muted); cursor: pointer; }
+.chip input:checked + span { background: var(--accent); border-color: var(--accent); color: #0a1a3f; font-weight: 600; }
+.chip input:focus-visible + span { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.check { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-weight: 400; font-size: 14px; color: var(--muted); }
+.check input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--accent); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+button { font: 600 17px var(--text); color: #0a1a3f; background: var(--accent); border: 0; border-radius: 12px; padding: 15px 22px; cursor: pointer; width: 100%; }
+button:hover { filter: brightness(1.08); }
+button:disabled { opacity: .6; cursor: wait; }
+.err { color: var(--error); font-size: 14px; margin: 0; min-height: 1em; }
+.done { display: none; text-align: left; }
+.done h2 { font: 500 28px/1.15 var(--display); margin: 0 0 8px; letter-spacing: -0.02em; }
+.done p { color: var(--muted); margin: 0 0 12px; }
+.sent form { display: none; }
+.sent .done { display: block; background: rgb(17 38 90 / .72); border: 1px solid var(--line); border-radius: 20px; padding: 32px; }
+.foot { max-width: 1100px; margin: 0 auto; padding: 0 16px 40px; color: #8fa2cc; font-size: 13px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="index.html"><img src="logo.svg" alt="" width="30" height="30">Willames Store</a>
+  <a class="top__wa" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vim%20pela%20p%C3%A1gina%20do%20diagn%C3%B3stico"><span>Prefere o WhatsApp? </span>(84) 98867-4691</a>
+</header>
+
+<main class="wrap" id="topo">
+  <section class="intro" aria-labelledby="h">
+    <p class="eyebrow">Diagnóstico gratuito</p>
+    <h1 id="h">Onde a sua empresa <em>se perde</em> hoje?</h1>
+    <p class="lead">Pode ser o WhatsApp que ninguém dá conta, o pedido que se perde entre planilhas, o cliente que não encontra você no Google. Conte nas suas palavras: não precisa saber o nome do serviço.</p>
+    <ol class="steps">
+      <li><span class="n">1</span><div><b>Você responde em uns 5 minutos</b>Sobre a empresa, a rotina e o que mais atrapalha.</div></li>
+      <li><span class="n">2</span><div><b>O Daniel analisa</b>E indica a solução certa: atendimento com IA, sistemas e integração, site e tráfego ou conteúdo.</div></li>
+      <li><span class="n">3</span><div><b>Você recebe a recomendação</b>Pelo WhatsApp, com a proposta e o valor fechado. Sem compromisso.</div></li>
+    </ol>
+    <p class="note">Para empresas de qualquer setor e porte, e para órgãos públicos e instituições. De Natal-RN para todo o Brasil.</p>
+  </section>
+
+  <section aria-label="Formulário do diagnóstico" id="area">
+    <form id="f" novalidate>
+      <fieldset>
+        <legend>Quem é você</legend>
+        <div class="row row--2">
+          <div><label for="nome">Seu nome</label><input id="nome" name="Nome" type="text" autocomplete="name" required></div>
+          <div><label for="whats">WhatsApp</label><input id="whats" name="WhatsApp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(84) 9 0000-0000" required></div>
+        </div>
+        <div class="row row--2">
+          <div><label for="empresa">Empresa ou instituição</label><input id="empresa" name="Empresa" type="text" autocomplete="organization" required></div>
+          <div><label for="cidade">Cidade e estado</label><input id="cidade" name="Cidade" type="text" placeholder="Natal-RN"></div>
+        </div>
+        <div class="row row--2">
+          <div><label for="setor">Setor</label>
+            <select id="setor" name="Setor" required>
+              <option value="">Escolha</option>
+              <option>Clínica ou saúde</option><option>Comércio ou loja</option><option>Indústria ou fábrica</option>
+              <option>Serviços (escritório, consultoria, imobiliária...)</option><option>Restaurante ou alimentação</option>
+              <option>Educação</option><option>Órgão público ou instituição</option><option>Outro</option>
+            </select></div>
+          <div><label for="tamanho">Quantas pessoas trabalham aí?</label>
+            <select id="tamanho" name="Tamanho">
+              <option value="">Escolha</option><option>Só eu</option><option>2 a 5</option><option>6 a 20</option><option>21 a 100</option><option>Mais de 100</option>
+            </select></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>O problema</legend>
+        <div><label for="dor">Onde a empresa se perde hoje? <span class="hint">Em poucas linhas, do seu jeito.</span></label>
+          <textarea id="dor" name="Onde se perde" required placeholder="Ex.: chegam muitas mensagens e a recepção não dá conta; os pedidos ficam em várias planilhas; ninguém acha a gente no Google..."></textarea></div>
+        <div><span class="label">O que interessa? <span class="hint">Marque quantas quiser.</span></span>
+          <div class="chips" role="group" aria-label="Frentes de interesse">
+            <label class="chip"><input type="checkbox" name="Frentes" value="Atendimento com IA"><span>Atendimento com IA</span></label>
+            <label class="chip"><input type="checkbox" name="Frentes" value="Sistemas e integração"><span>Sistemas e integração</span></label>
+            <label class="chip"><input type="checkbox" name="Frentes" value="Site e tráfego"><span>Site e tráfego</span></label>
+            <label class="chip"><input type="checkbox" name="Frentes" value="Conteúdo"><span>Conteúdo</span></label>
+            <label class="chip"><input type="checkbox" name="Frentes" value="Ainda não sei"><span>Ainda não sei</span></label>
+          </div></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>A rotina hoje</legend>
+        <div class="row row--2">
+          <div><label for="msgs">Contatos por dia (WhatsApp, Instagram, telefone)</label>
+            <select id="msgs" name="Contatos por dia"><option value="">Escolha</option><option>Até 10</option><option>11 a 30</option><option>31 a 100</option><option>Mais de 100</option><option>Não sei</option></select></div>
+          <div><label for="quem">Quem responde e até que horas?</label><input id="quem" name="Quem responde" type="text" placeholder="Ex.: a recepção, até as 18h"></div>
+        </div>
+        <div><label for="sistemas">Que sistemas ou planilhas a empresa usa? <span class="hint">Agenda, ERP, planilha, caderno... Se não souber, deixe em branco.</span></label>
+          <input id="sistemas" name="Sistemas usados" type="text"></div>
+        <div class="row row--2">
+          <div><label for="site">Tem site?</label><select id="site" name="Tem site"><option value="">Escolha</option><option>Sim</option><option>Não</option><option>Tenho, mas está desatualizado</option></select></div>
+          <div><label for="anuncios">Faz anúncios pagos?</label><select id="anuncios" name="Anúncios"><option value="">Escolha</option><option>Não</option><option>Sim, no Instagram/Facebook</option><option>Sim, no Google</option><option>Sim, nos dois</option></select></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Planejamento</legend>
+        <div class="row row--2">
+          <div><label for="invest">Quanto pensa investir por mês?</label>
+            <select id="invest" name="Investimento mensal"><option value="">Escolha</option><option>Até R$ 500</option><option>R$ 500 a R$ 1.000</option><option>R$ 1.000 a R$ 3.000</option><option>Acima de R$ 3.000</option><option>Prefiro conversar</option></select></div>
+          <div><label for="prazo">Para quando?</label>
+            <select id="prazo" name="Prazo"><option value="">Escolha</option><option>O quanto antes</option><option>Nos próximos 30 dias</option><option>Nos próximos 3 meses</option><option>Só pesquisando</option></select></div>
+        </div>
+        <div><label for="email">E-mail <span class="hint">Opcional.</span></label><input id="email" name="E-mail" type="email" autocomplete="email"></div>
+        <label class="check"><input type="checkbox" id="lgpd" required><span>Concordo que a Willames Store use estas informações para analisar a minha empresa e falar comigo, conforme a <a href="politica-de-privacidade.html" target="_blank" rel="noopener">política de privacidade</a>.</span></label>
+      </fieldset>
+
+      <div class="hp" aria-hidden="true"><label for="hp">Não preencha</label><input id="hp" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+      <p class="err" id="err" role="alert"></p>
+      <button type="submit" id="btn">Enviar o diagnóstico</button>
+    </form>
+
+    <div class="done" id="done" tabindex="-1">
+      <p class="eyebrow">Recebido</p>
+      <h2>Obrigado! O diagnóstico chegou.</h2>
+      <p>O Daniel vai analisar e responder pelo WhatsApp com a recomendação. Se quiser adiantar a conversa, chame agora:</p>
+      <p><a href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20acabei%20de%20enviar%20o%20diagn%C3%B3stico%20pelo%20site">Falar com o Daniel no WhatsApp</a> · <a href="index.html">Voltar ao site</a></p>
+    </div>
+  </section>
+</main>
+
+<p class="foot">&copy; 2026 Willames Store · D W DA S ASEVEDO COMERCIO E SERVICOS · CNPJ 43.743.105/0001-43 · Parnamirim-RN · <a href="politica-de-privacidade.html">Política de Privacidade</a></p>
+
+<script>
+  // envia para o e-mail da Willames Store (FormSubmit) e mostra a confirmação na própria página
+  const f = document.getElementById('f'), err = document.getElementById('err'), btn = document.getElementById('btn');
+  f.addEventListener('submit', async e => {
+    e.preventDefault(); err.textContent = '';
+    const falta = [...f.querySelectorAll('[required]')].find(el => el.type === 'checkbox' ? !el.checked : !el.value.trim());
+    if (falta) { err.textContent = falta.id === 'lgpd' ? 'Marque a concordância para enviar.' : 'Preencha os campos obrigatórios: nome, WhatsApp, empresa, setor e onde a empresa se perde.'; falta.focus(); return; }
+    if (f._honey.value) return;
+    const d = {};
+    new FormData(f).forEach((v, k) => { if (k === '_honey') return; d[k] = d[k] ? d[k] + ', ' + v : v; });
+    d._subject = 'Diagnóstico pelo site: ' + (d['Empresa'] || d['Nome']);
+    d._template = 'table';
+    d._captcha = 'false';
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/willamesstore@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || 'falha');
+      document.getElementById('area').classList.add('sent');
+      document.getElementById('done').focus();
+      window.scrollTo({ top: document.getElementById('area').offsetTop - 16, behavior: 'smooth' });
+    } catch (x) {
+      err.innerHTML = 'Não foi possível enviar agora. Tente de novo ou mande pelo <a href="https://wa.me/5584988674691">WhatsApp (84) 98867-4691</a>.';
+      btn.disabled = false; btn.textContent = 'Enviar o diagnóstico';
+    }
+  });
+</script>
+</body>
+</html>

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Willames Store: agentes de IA no WhatsApp para empresas</title>
-<meta name="description" content="Agentes de IA que respondem seus clientes no WhatsApp e no Instagram a qualquer hora, mais sites e anúncios no Meta e no Google. Natal-RN, para todo o Brasil.">
+<title>Willames Store: atendimento com IA, sistemas, sites e anúncios</title>
+<meta name="description" content="Tecnologia que atende, vende e organiza a sua empresa: atendimento com IA no WhatsApp, sistemas e integração, sites, anúncios e conteúdo. Para empresas de qualquer setor e órgãos públicos. Natal-RN, para todo o Brasil.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Willames Store: agentes de IA no WhatsApp para empresas">
-<meta property="og:description" content="Agente de IA no WhatsApp, sites e anúncios para empresas.">
+<meta property="og:title" content="Willames Store: tecnologia que atende, vende e organiza a sua empresa">
+<meta property="og:description" content="Atendimento com IA, sistemas e integração, sites, anúncios e conteúdo. Faça o diagnóstico gratuito.">
 <meta property="og:url" content="https://willamesstore.com.br/">
 <meta property="og:image" content="https://willamesstore.com.br/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -166,6 +166,11 @@
   .seg__nota { margin: var(--s-3, 12px) 0 0; font-size: 13px; color: var(--muted); }
   @media (max-width: 1023px) { .seg__panel { grid-template-columns: 1fr; } }
   @media (max-width: 639px) { .seg__side { grid-template-columns: 1fr; } }
+  /* 4 frentes: número da frente e chamada para o diagnóstico */
+  .frente__num { margin: 0 0 4px; font: 500 12px/1 var(--font-mono); letter-spacing: .14em; color: #5ce1e6; }
+  .frentes__cta { margin-top: var(--s-6, 32px); display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between; padding: 20px 24px; border: 1px dashed #3b8bff; border-radius: 16px; }
+  .frentes__cta p { margin: 0; max-width: 60ch; color: var(--p-muted); }
+  .frentes__cta strong { color: var(--p-ink); }
   /* o painel muda de tamanho conforme o nicho: a seção cresce quando a tela é baixa, sem invadir a próxima */
   main > section#segmentos { height: auto; min-height: 100vh; min-height: 100svh; }
   main > section#segmentos > .wrap { height: auto; }
@@ -207,20 +212,25 @@
         <a class="nav__link" href="#servicos">Serviços <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
           <div class="wrap grid">
-            <a class="menu-card span-4" href="#agente">
+            <a class="menu-card span-3" href="#servicos">
               <div class="panel"><img class="frame__img" src="assets/img/reels-frame.jpg" alt="Conversa em que o agente de IA confirma um horário" style="object-position: 50% 62%"></div>
-              <span class="t-card">Agente de IA</span>
-              <span class="t-small muted">WhatsApp e Instagram, 24 horas</span>
+              <span class="t-card">Atendimento com IA</span>
+              <span class="t-small muted">WhatsApp, Instagram e site, 24 horas</span>
             </a>
-            <a class="menu-card span-4" href="#servicos">
+            <a class="menu-card span-3" href="#servicos">
               <div class="panel"><img class="frame__img" src="assets/img/photo-f187688198-960.jpg" alt="Mãos com um celular sobre o teclado de um notebook"></div>
-              <span class="t-card">Sites e anúncios</span>
-              <span class="t-small muted">Páginas rápidas, Meta e Google</span>
+              <span class="t-card">Sistemas e integração</span>
+              <span class="t-small muted">Pedidos, estoque, agenda e painel</span>
             </a>
-            <a class="menu-card span-4" href="#trabalhos">
+            <a class="menu-card span-3" href="#servicos">
+              <div class="panel"><img class="frame__img" src="assets/img/photo-f194134742-960.jpg" alt="Mulher lendo uma mensagem no celular" style="object-position: 50% 35%"></div>
+              <span class="t-card">Site e tráfego</span>
+              <span class="t-small muted">Sites rápidos, Google e Meta Ads</span>
+            </a>
+            <a class="menu-card span-3" href="#trabalhos">
               <div class="panel"><img class="frame__img" src="assets/img/work-carrossel-o-que-eu-faco.jpg" alt="Capa de carrossel da Willames Store" style="object-position: 50% 30%"></div>
-              <span class="t-card">Vídeos e carrosséis</span>
-              <span class="t-small muted">Reels e posts para o Instagram</span>
+              <span class="t-card">Conteúdo</span>
+              <span class="t-small muted">Vídeos e carrosséis</span>
             </a>
           </div>
         </div>
@@ -228,6 +238,7 @@
       <div class="nav__item"><a class="nav__link" href="#segmentos">Segmentos</a></div>
       <div class="nav__item"><a class="nav__link" href="#agente">Agente</a></div>
       <div class="nav__item"><a class="nav__link" href="#trabalhos">Trabalhos</a></div>
+      <div class="nav__item"><a class="nav__link" href="diagnostico.html">Diagnóstico</a></div>
       <div class="nav__item"><a class="nav__link" href="#como-funciona">Etapas</a></div>
     </nav>
     <div class="nav__actions">
@@ -256,13 +267,13 @@
     </div>
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
-        <h1 id="hero-h" aria-label="Agentes de IA que atendem no WhatsApp da sua empresa">Agentes de IA que <span class="ws-rotate" data-words="atendem,vendem,agendam,respondem"><span>atendem</span></span> no WhatsApp</h1>
-        <p class="hero__lead">O agente responde seus clientes 24 horas por dia, em segundos: tira dúvidas, marca horários e envia orçamentos. Junto, sites e anúncios no Meta e no Google.</p>
+        <h1 id="hero-h" aria-label="Tecnologia que atende, vende e organiza a sua empresa">Tecnologia que <span class="ws-rotate" data-words="atende,vende,organiza,agenda"><span>atende</span></span> a sua empresa</h1>
+        <p class="hero__lead">Atendimento com IA no WhatsApp, sistemas que ligam o que a sua empresa já usa, sites, anúncios e conteúdo. Para empresas de qualquer setor e órgãos públicos.</p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-          <a class="btn btn--secondary" href="#servicos">Ver os serviços</a>
+          <a class="btn btn--primary" href="diagnostico.html">Fazer o diagnóstico gratuito<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp</a>
         </div>
-        <p class="hero__proof">De Natal-RN para empresas de todo o Brasil. Proposta com valor fechado.</p>
+        <p class="hero__proof">De Natal-RN para todo o Brasil. Primeiro o problema, depois a proposta com valor fechado.</p>
       </div>
       <div class="hero__art ws-stage3d span-6 start-7">
         <div class="ws-glass ws-video" data-video style="position:absolute;inset:0">
@@ -291,35 +302,48 @@
   <section class="section" id="servicos" aria-labelledby="servicos-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="servicos-h">Agente de IA, site e anúncios. <span class="muted">Contrate um serviço ou combine os três.</span></h2>
+        <h2 id="servicos-h">Quatro frentes para a sua empresa atender, vender e se organizar. <span class="muted">Contrate uma ou combine. Para qualquer setor, privado ou público.</span></h2>
       </div>
       <div class="grid">
-        <article class="card card--row span-4">
-          <h3>Agente no WhatsApp e no Instagram</h3>
-          <p>Responde dúvidas, marca horários e envia orçamentos. O que precisa de uma pessoa vai para a sua equipe.</p>
+        <article class="card card--row span-6">
+          <p class="frente__num">01</p>
+          <h3>Atendimento com IA</h3>
+          <p>Agentes no WhatsApp, no Instagram e no site que respondem na hora, marcam horários e enviam orçamentos, 24 horas por dia. O que precisa de uma pessoa vai para a sua equipe.</p>
           <div class="panel"><div class="dg" data-diagram><script type="application/json">{"layout":"lanes","alt":"Uma mensagem no WhatsApp às 23h chega ao agente, que responde a dúvida, marca o horário e envia o orçamento.","input":{"label":"WhatsApp","icon":"whatsapp"},"core":{"label":"Agente","icon":"ui:bot"},"lanes":[{"label":"Dúvida respondida","icon":"ui:message-circle","done":true},{"label":"Horário marcado","icon":"google-calendar","done":true},{"label":"Orçamento enviado","icon":"ui:file-text","done":true}]}</script></div></div>
         </article>
-        <article class="card card--row span-4">
-          <h3>Sites e páginas de venda</h3>
-          <p>Abrem rápido no celular e levam o visitante direto para a conversa no seu WhatsApp.</p>
-          <div class="panel" role="img" aria-label="Página de uma clínica no celular, com o botão Agendar pelo WhatsApp">
+        <article class="card card--row span-6">
+          <p class="frente__num">02</p>
+          <h3>Sistemas e integração</h3>
+          <p>Pedidos, estoque, agenda e financeiro conversando entre si, num painel feito para o seu processo. Começamos ligando o que a empresa já usa e criamos o que falta. Os dados são sempre da empresa.</p>
+          <div class="panel"><div class="dg" data-diagram><script type="application/json">{"layout":"hub","alt":"WhatsApp, agenda, planilhas e site ligados num painel único da empresa.","center":{"label":"Painel da empresa","icon":"ui:file-text"},"spokes":[{"label":"WhatsApp","icon":"whatsapp"},{"label":"Agenda","icon":"google-calendar"},{"label":"Planilhas e sistemas","icon":"ui:file-text"},{"label":"Site","icon":"ui:globe"}]}</script></div></div>
+        </article>
+        <article class="card card--row span-6">
+          <p class="frente__num">03</p>
+          <h3>Site e tráfego</h3>
+          <p>Sites e páginas que abrem rápido no celular e levam direto para a conversa, com anúncios no Google, no Instagram e no Facebook medidos pelos contatos que chegam.</p>
+          <div class="panel" role="img" aria-label="Página de uma empresa no celular, com o botão Pedir pelo WhatsApp">
             <div class="stage"><div class="at-center" style="--w: 300px" aria-hidden="true">
               <div class="ui ui-site site-mock">
-                <div class="site-mock__bar"><i></i><i></i><i></i><span>suaclinica.com.br</span></div>
+                <div class="site-mock__bar"><i></i><i></i><i></i><span>suaempresa.com.br</span></div>
                 <div class="site-mock__body">
-                  <strong>Avaliação de pele em Natal</strong>
-                  <p>Horários de segunda a sábado, com confirmação na hora.</p>
-                  <span class="site-mock__btn"><img src="assets/icons/whatsapp.svg" alt="">Agendar pelo WhatsApp</span>
+                  <strong>Orçamento em Natal no mesmo dia</strong>
+                  <p>Atendimento de segunda a sábado, com resposta na hora.</p>
+                  <span class="site-mock__btn"><img src="assets/icons/whatsapp.svg" alt="">Pedir pelo WhatsApp</span>
                 </div>
               </div>
             </div></div>
           </div>
         </article>
-        <article class="card card--row span-4">
-          <h3>Anúncios no Meta e no Google</h3>
-          <p>Campanhas no Instagram, no Facebook e na pesquisa do Google, medidas pelos contatos que chegam.</p>
-          <div class="panel"><div class="dg" data-diagram><script type="application/json">{"layout":"hub","alt":"Anúncios no Instagram, no Facebook, no Google e no site levam ao WhatsApp da empresa.","center":{"label":"Seu WhatsApp","icon":"whatsapp"},"spokes":[{"label":"Instagram","icon":"instagram"},{"label":"Facebook","icon":"facebook"},{"label":"Google Ads","icon":"google-ads"},{"label":"Seu site","icon":"ui:globe"}]}</script></div></div>
+        <article class="card card--row span-6">
+          <p class="frente__num">04</p>
+          <h3>Conteúdo</h3>
+          <p>Vídeos e carrosséis para o Instagram e o LinkedIn com a cara da sua marca, agendados para sair no horário certo.</p>
+          <div class="panel"><img class="frame__img" src="assets/img/work-carrossel-agente-ia-whatsapp.jpg" alt="Capa de carrossel da Willames Store sobre o agente de IA no WhatsApp" loading="lazy" data-source="client" data-subject="carrossel da Willames Store" style="object-position: 50% 30%"></div>
         </article>
+      </div>
+      <div class="frentes__cta">
+        <p><strong>Não sabe por onde começar?</strong> Conte onde a sua empresa se perde hoje. A gente indica a frente certa e só depois fala de preço.</p>
+        <a class="btn btn--primary" href="diagnostico.html">Fazer o diagnóstico gratuito<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
       </div>
     </div>
   </section>
@@ -528,8 +552,8 @@
       <div class="grid">
         <article class="card card--row span-4">
           <span class="step-num">1</span>
-          <h3>Conte como você atende hoje</h3>
-          <p>Uma conversa pelo WhatsApp sobre seus clientes, seus horários e onde a venda trava.</p>
+          <h3>Conte onde a empresa se perde</h3>
+          <p>Pelo <a href="diagnostico.html">diagnóstico gratuito</a> ou numa conversa pelo WhatsApp: seus clientes, seus processos e onde a venda trava.</p>
           <div class="panel"><img class="frame__img" src="assets/img/photo-f187688198-960.jpg" alt="Mãos segurando um celular sobre o teclado de um notebook" loading="lazy" data-source="stand-in" data-subject="empresário no celular e no notebook"></div>
         </article>
         <article class="card card--row span-4">
@@ -552,11 +576,13 @@
     <div class="wrap grid grid--top">
       <div class="span-6">
         <div class="section-head">
-          <h2 id="perguntas-h">Perguntas frequentes sobre o agente de IA e os sites</h2>
+          <h2 id="perguntas-h">Perguntas frequentes</h2>
         </div>
         <div class="faq">
-          <div class="faq__item"><h3>Quanto custa um agente de IA ou um site?</h3><p>Depende do serviço e do tamanho da empresa. Depois da conversa, envio a proposta com o valor fechado.</p></div>
-          <div class="faq__item"><h3>A agência atende fora de Natal?</h3><p>Sim. Atendo empresas de todo o Brasil, com tudo combinado pelo WhatsApp.</p></div>
+          <div class="faq__item"><h3>Quanto custa?</h3><p>Depende do problema e do escopo. Comece pelo <a href="diagnostico.html">diagnóstico gratuito</a>: depois dele você recebe a recomendação e a proposta com valor fechado.</p></div>
+          <div class="faq__item"><h3>Vocês atendem indústrias e órgãos públicos?</h3><p>Sim. As quatro frentes servem para empresas de qualquer setor, privadas ou públicas. Para órgãos públicos, a proposta segue o processo de contratação de cada instituição.</p></div>
+          <div class="faq__item"><h3>A agência atende fora de Natal?</h3><p>Sim. Atendemos todo o Brasil, com tudo combinado pelo WhatsApp e por videochamada.</p></div>
+          <div class="faq__item"><h3>De quem são os dados, o domínio e as contas de anúncio?</h3><p>Sempre da empresa. A Willames Store tem acesso por contrato enquanto presta o serviço.</p></div>
           <div class="faq__item"><h3>O agente de IA substitui minha equipe?</h3><p>Não. Ele responde as perguntas que se repetem e passa para a sua equipe o que precisa de uma pessoa.</p></div>
           <div class="faq__item"><h3>A verba dos anúncios está incluída?</h3><p>Não. Você decide o valor e paga direto ao Meta ou ao Google.</p></div>
         </div>
@@ -585,7 +611,7 @@
     <div class="closing__cta close--type">
       <div class="section-head">
         <h2 id="close-h">Fale com a Willames Store pelo WhatsApp</h2>
-        <p>(84) 98867-4691. Quem responde é o Daniel, dono da agência.</p>
+        <p>(84) 98867-4691. Quem responde é o Daniel, dono da agência. Prefere escrever com calma? <a href="diagnostico.html">Faça o diagnóstico</a>.</p>
       </div>
       <a class="btn btn--primary btn--xl btn--wide" href="https://wa.me/5584988674691?text=Oi%20Daniel%2C%20vi%20o%20site%20da%20Willames%20Store%20e%20quero%20saber%20mais">Chamar no WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
     </div>
@@ -593,11 +619,11 @@
       <div class="grid">
         <div class="span-4 stack-4">
           <a class="nav__logo" href="#top"><img src="logo.svg" alt="" width="32" height="32">Willames Store</a>
-          <p class="footer__lede">Agentes de IA, sites e anúncios para empresas.</p>
+          <p class="footer__lede">Tecnologia que atende, vende e organiza a sua empresa. Para qualquer setor, privado ou público.</p>
         </div>
-        <div class="span-2 footer__col"><h3>Serviços</h3><ul><li><a href="#agente">Agente de IA</a></li><li><a href="#servicos">Sites</a></li><li><a href="#servicos">Anúncios</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Frentes</h3><ul><li><a href="#servicos">Atendimento com IA</a></li><li><a href="#servicos">Sistemas e integração</a></li><li><a href="#servicos">Site e tráfego</a></li><li><a href="#trabalhos">Conteúdo</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Trabalhos</h3><ul><li><a href="#trabalhos">Carrosséis</a></li><li><a href="https://www.instagram.com/danielwillamess/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Etapas</h3><ul><li><a href="#como-funciona">Como funciona</a></li><li><a href="#perguntas">Perguntas</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Etapas</h3><ul><li><a href="diagnostico.html">Diagnóstico</a></li><li><a href="#como-funciona">Como funciona</a></li><li><a href="#perguntas">Perguntas</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Contato</h3><ul><li><a href="https://wa.me/5584988674691">WhatsApp</a></li><li><a href="mailto:willamesstore@gmail.com">E-mail</a></li></ul></div>
       </div>
       <div class="footer__legal">
